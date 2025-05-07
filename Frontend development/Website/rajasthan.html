@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rajasthan - Local Lens</title>
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Jomhuria&family=Oxygen:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: 'Oxygen', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body {
+      position: relative;
+    }
+
+    .main-container {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bg-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      z-index: 0;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #AD5D26;
+      opacity: 0.47;
+      z-index: 1;
+    }
+
+    .navbar {
+      width: 100%;
+      padding: 15px 24px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 3;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      color: #005276;
+      font-size: 32px;
+      font-family: 'Abhaya Libre', serif;
+      font-weight: 800;
+      letter-spacing: 1.92px;
+    }
+
+    .logo-circle {
+      width: 17px;
+      height: 17px;
+      background: #005276;
+      border-radius: 50%;
+      position: relative;
+      margin-right: 8px;
+    }
+
+    .logo-circle span {
+      position: absolute;
+      top: -7px;
+      left: 3px;
+      color: white;
+      font-family: 'Jomhuria', cursive;
+      font-size: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .nav-links div {
+      color: #F9F9F9;
+      font-weight: 700;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .book-now {
+      background: #096488;
+      border-radius: 20px;
+      color: white;
+      padding: 10px 20px;
+    }
+
+    .content {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      text-align: center;
+      color: white;
+      width: 80%;
+    }
+
+    .content h1 {
+      font-size: 64px;
+      font-family: 'Abhaya Libre', serif;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+      margin-bottom: 40px;
+    }
+
+    .search-bar {
+      height: 60px;
+      background: white;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      
+    }
+
+    .search-bar img.location-icon {
+      height: 28px;
+      width: 28px;
+      margin-right: 10px;
+    }
+
+    .search-bar input {
+      border: none;
+      outline: none;
+      font-size: 20px;
+      color: #999;
+      flex: 1;
+      cursor: text;
+    }
+
+    .search-button {
+      background: #0C6B90;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      cursor: pointer;
+      width: 90px;
+    }
+
+    .search-button img {
+      height: 28px;
+      width: 28px;
+    }
+
+/* Tablet (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  .content h1 {
+    font-size: 48px;
+  }
+
+  .content p {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .search-bar {
+    height: 50px;
+    padding: 0 15px;
+  }
+
+  .search-bar input {
+    font-size: 18px;
+  }
+
+  .search-button {
+    width: 70px;
+    padding: 8px 16px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    margin-top: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* Mobile (up to 767px) */
+@media screen and (max-width: 767px) {
+  .content {
+    top: 20%;
+    width: 90%;
+  }
+
+  .content h1 {
+    font-size: 32px;
+  }
+
+  .content p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    height: auto;
+    border-radius: 20px;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .search-bar input {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .search-button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 10px;
+  }
+}
+.hamburger-icon {
+  display: none;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  z-index: 4;
+}
+
+/* Mobile only */
+@media screen and (max-width: 767px) {
+  .hamburger-icon {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #005276;
+    width: 100%;
+    padding: 10px 20px;
+    position: absolute;
+    top: 60px; /* adjust if your navbar height changes */
+    left: 0;
+    z-index: 3;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+
+
+    .container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .header-section,
+        .sub-header-section {
+            width: 1115px;
+            position: absolute;
+            color: #0C6B90;
+            font-size: 44px;
+            font-family: Abhaya Libre ExtraBold;
+            font-weight: 800;
+            word-wrap: break-word;
+        }
+
+        .header-section {
+            top: 57px;
+            left: 161px;
+        }
+
+        .sub-header-section {
+            top: 319px;
+            left: 161px;
+        }
+
+        .category-buttons {
+            left: 161px;
+            top: 157px;
+            position: absolute;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 84px;
+            display: flex;
+        }
+
+        .category-button {
+            width: 221px;
+            height: 79px;
+            padding: 18px 21px;
+            background: #0C6B90;
+            border-radius: 50px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 36px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .category-button:hover {
+            background: #095c7b;
+        }
+
+        .card-section {
+            left: 176px;
+            top: 419px;
+            position: absolute;
+            display: flex;
+            gap: 49px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 330px;
+            height: 410px;
+            position: relative;
+            background: #F9F9F9;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 236px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .card-info {
+            width: 100%;
+            background: #F9F9F9;
+            padding: 16px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .card-title {
+            color: #0C6B90;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .card-description {
+            color: black;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .card-price {
+            color: black;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .card-duration,
+        .card-rating {
+            position: absolute;
+            font-size: 16px;
+            font-weight: 400;
+            color: #0C6B90;
+        }
+
+        .card-duration {
+            left: 251px;
+            top: 250px;
+        }
+
+        .card-rating {
+            left: 36px;
+            top: 377px;
+        }
+
+        .show-more {
+            width: 133px;
+            height: 50px;
+            left: 654px;
+            top: 858px;
+            position: absolute;
+        }
+
+        .show-more-button {
+            width: 176px;
+            padding: 10px;
+            position: absolute;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0C6B90;
+            border-radius: 30px;
+            outline: 1px #0C6B90 solid;
+            outline-offset: -1px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .show-more-button:hover {
+            background: #095c7b;
+        }
+
+        .show-more-text {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .header-section,
+            .sub-header-section {
+                font-size: 36px;
+                width: 90%;
+                left: 5%;
+            }
+
+            .category-buttons {
+                gap: 40px;
+                justify-content: center;
+                margin-top: 20px;
+            }
+
+            .category-button {
+                width: 180px;
+                height: 60px;
+                font-size: 20px;
+                padding: 14px;
+            }
+
+            .card-section {
+                gap: 20px;
+                justify-content: center;
+            }
+
+            .card {
+                width: 100%;
+                height: auto;
+            }
+
+            .card-info {
+                padding: 12px;
+            }
+
+            .show-more {
+                left: 40%;
+                top: 80%;
+            }
+
+            .show-more-button {
+                width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-section,
+            .sub-header-section {
+                font-size: 28px;
+            }
+
+            .category-button {
+                width: 150px;
+                height: 50px;
+                font-size: 18px;
+                padding: 12px;
+            }
+
+            .card-section {
+                gap: 15px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 90%;
+                height: auto;
+            }
+
+            .show-more {
+                left: 35%;
+                top: 85%;
+            }
+
+            .show-more-button {
+                width: 130px;
+            }
+        }
+
+        /*that 3rd row*/
+        .hotel-container {
+      max-width: 1115px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hotel-title {
+      color: #0C6B90;
+      font-size: 44px;
+      font-family: 'Abhaya Libre ExtraBold', serif;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .card-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .hotel-card {
+      width: 330px;
+      background: #D9D9D9;
+      border-radius: 20px;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      display: inline-flex;
+      position: relative;
+    }
+
+    .hotel-card img {
+      width: 330px;
+      height: 236px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      object-fit: cover;
+    }
+
+    .card-bottom {
+      width: 100%;
+      height: 166px;
+      background: #F9F9F9;
+      border-bottom-right-radius: 20px;
+      border-bottom-left-radius: 20px;
+      position: relative;
+    }
+
+    .card-content {
+  padding: 20px 23px;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: black;
+  background: #F9F9F9;
+}
+
+.card-content span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.card-content span:first-child {
+  font-weight: 700;
+  font-size: 16px;
+  color: #0C6B90;
+}
+
+.card-content span:last-child {
+  font-size: 16px;
+}
+
+
+    .card-content span {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .card-content span:first-child {
+      font-weight: 700;
+      font-size: 16px;
+      color: #0C6B90;
+    }
+
+    .card-content span:last-child {
+      font-size: 16px;
+      color: black;
+    }
+
+    .rating-dot {
+      width: 18px;
+      height: 18px;
+      background: #0C6B90;
+      position: absolute;
+      bottom: 10px;
+      left: 23px;
+    }
+
+    .rating-text {
+      position: absolute;
+      bottom: 10px;
+      left: 48px;
+      font-size: 11px;
+      color: black;
+      font-family: 'Oxygen', sans-serif;
+    }
+
+    .view-more-box {
+      width: 86px;
+      height: 35px;
+      background: white;
+      border: 1px solid #0C6B90;
+      border-radius: 10px;
+      position: absolute;
+      bottom: 10px;
+      right: 23px;
+    }
+
+    .view-more-text {
+      position: absolute;
+      bottom: 17px;
+      right: 33px;
+      font-size: 14px;
+      font-family: 'Oxygen', sans-serif;
+      color: #0C6B90;
+    }
+
+    .duration {
+      position: absolute;
+      top: 253px;
+      left: 119px;
+      color: #0C6B90;
+      font-size: 16px;
+      font-family: 'Oxygen', sans-serif;
+    }
+
+    .show-more-btn {
+      width: 176px;
+      margin: 50px auto 0;
+      padding: 10px;
+      background: #0C6B90;
+      border-radius: 30px;
+      text-align: center;
+      font-family: 'Oxygen', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: white;
+    }
+
+    @media screen and (max-width: 1024px) {
+      .card-row {
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .hotel-card {
+        width: 45%;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      .hotel-card {
+        width: 100%;
+      }
+
+      .hotel-title {
+        font-size: 32px;
+      }
+
+      .card-content {
+        font-size: 12px;
+        width: 90%;
+      }
+
+      .card-content span:first-child {
+        font-size: 14px;
+      }
+
+      .card-content span:last-child {
+        font-size: 14px;
+      }
+
+      .view-more-text {
+        font-size: 12px;
+        right: 28px;
+      }
+
+      .show-more-btn {
+        font-size: 16px;
+        padding: 8px;
+        width: 150px;
+      }
+    }
+
+        .main-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Inner Content Wrapper */
+        .content-wrapper {
+            width: 1115px;
+            height: 547px;
+            position: absolute;
+            left: 166px;
+            top: 40px;
+        }
+
+        /* Title Section */
+        .section-title {
+            color: #0C6B90;
+            font-size: 44px;
+            font-family: Abhaya Libre ExtraBold;
+            font-weight: 800;
+            text-align: center;
+            word-wrap: break-word;
+            margin-bottom: 55px;
+        }
+
+        /* Card Container */
+        .card-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 44px;
+        }
+
+        /* Individual Card */
+        .card {
+            width: 333px;
+            height: 428px;
+            position: relative;
+            background: linear-gradient(0deg, rgba(50, 52, 53, 0.30) 0%, rgba(50, 52, 53, 0.30) 100%);
+            box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.25);
+            border-radius: 20px;
+            background-size: cover;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .card-overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(50, 52, 53, 0.30);
+            border-radius: 20px;
+        }
+
+        .card-titleU {
+            position: absolute;
+            left: 34px;
+            top: 288px;
+            color:#FFFFFF ;
+            font-size: 24px;
+            font-family: Abhaya Libre ExtraBold;
+            font-weight: 800;
+        }
+
+        .card-circle {
+            position: absolute;
+            width: 42px;
+            height: 42px;
+            background: white;
+            border-radius: 9999px;
+            top: 28px;
+            left: 267px;
+        }
+
+        .card-icon {
+            position: absolute;
+            width: 600px;
+            height: 30px;
+            left: 288px;
+            top: 25px;
+            transform: rotate(45deg);
+            transform-origin: top left;
+           
+            overflow: hidden;
+        }
+
+        .card-icon-inner {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            left: 2.21px;
+            top: 2.21px;
+           
+            outline: 1px solid white;
+            outline-offset: -0.5px;
+        }
+
+        .explore-button {
+            position: absolute;
+            left: 31px;
+            top: 351px;
+            width: 78px;
+            height: 30px;
+            background: white;
+            border-radius: 8px;
+            outline: 1px solid white;
+            outline-offset: -1px;
+            cursor: pointer;
+        }
+
+        .explore-button-text {
+            color: #0C6B90;
+            font-size: 16px;
+            font-family: Oxygen, sans-serif;
+            font-weight: 400;
+            line-height: 24px;
+            text-align: center;
+            position: absolute;
+            left: 12px;
+            top: 3px;
+        }
+        /* Tablet screens (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  .section-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .card {
+    width: 280px;
+    height: 400px;
+  }
+
+  .card-titleU {
+    font-size: 20px;
+    top: 270px;
+  }
+
+  .explore-button {
+    top: 330px;
+  }
+}
+
+/* Mobile screens (up to 767px) */
+@media screen and (max-width: 767px) {
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+    height: 380px;
+  }
+
+  .card-titleU {
+    font-size: 18px;
+    top: 260px;
+    left: 20px;
+  }
+
+  .explore-button {
+    top: 310px;
+    left: 20px;
+    width: 70px;
+    height: 28px;
+  }
+
+  .explore-button-text {
+    font-size: 14px;
+    top: 2px;
+    left: 10px;
+  }
+
+  .card-circle {
+    left: auto;
+    right: 20px;
+  }
+
+  .card-icon {
+    left: auto;
+    right: 5px;
+  }
+}
+/* Add smooth transition on card hover for better interaction */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.35);
+}
+
+.card.expanded {
+    height: 500px; /* Expanded height for showing extra content */
+    transition: height 0.3s ease-in-out;
+}
+
+
+
+.card.expanded .explore-button {
+    display: none;  /* Hide the button once the card is expanded */
+}
+
+.card-expanded-details {
+    padding: 10px;
+    color: #fff;
+    font-size: 14px;
+    background-color: rgba(34, 34, 34, 0.7);
+    border-radius: 10px;
+    margin-top: 10px;
+    display: none;
+}
+
+.card.expanded .card-expanded-details {
+    display: block;
+}
+
+         /*subscribe section*/
+    .subscribe-section {
+      position: relative;
+      width: 100%;
+      height: 483px;
+      overflow: hidden;
+      border-radius: 61px;
+    }
+
+    .subscribe-section img.bg-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 61px;
+    }
+
+    .subscribe-overlay {
+      position: absolute;
+      top: 5px;
+      left: 0;
+      width: 100%;
+      height: 483px;
+      background: rgba(217, 217, 217, 0.13);
+      border-radius: 61px;
+      opacity: 50%;
+    }
+
+    .subscribe-wrapper {
+      position: absolute;
+      top: 50px;
+      left: 130px;
+      width: calc(100% - 260px);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 86px;
+      align-items: flex-end;
+      z-index: 1;
+    }
+
+    .subscribe-left {
+      width: 502px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .subscribe-left h2 {
+      color: white;
+      font-size: 44px;
+      font-family: 'Abhaya Libre ExtraBold', serif;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .subscribe-info {
+      color: white;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .subscribe-right {
+      width: 592px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .subscribe-message {
+      color: #323435;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+
+    .subscribe-buttons {
+      display: flex;
+      gap: 45px;
+    }
+
+    .btn-explore, .btn-learn {
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 20px;
+      font-family: 'Oxygen', sans-serif;
+      line-height: 30px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    .btn-explore {
+      background: #0C6B90;
+      color: white;
+    }
+
+    .btn-learn {
+      background: white;
+      color: #0C6B90;
+    }
+
+    .subscribe-form {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .email-input, .subscribe-btn {
+      height: 50px;
+      padding: 10px;
+      border-radius: 30px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-family: 'Oxygen', sans-serif;
+      line-height: 24px;
+      color: #0C6B90;
+      font-weight: 400;
+    }
+
+    .email-input {
+      width: 273px;
+    }
+
+    .subscribe-btn {
+      width: 131px;
+      cursor: pointer;
+    }
+    @media (max-width: 1024px) {
+  .subscribe-wrapper {
+    flex-direction: column;
+    align-items: center;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    gap: 40px;
+  }
+
+  .subscribe-left, .subscribe-right {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .subscribe-left h2 {
+    font-size: 36px;
+  }
+
+  .subscribe-message {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .subscribe-buttons {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .subscribe-form {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .email-input, .subscribe-btn {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .subscribe-left h2 {
+    font-size: 28px;
+  }
+
+  .subscribe-message {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .btn-explore, .btn-learn {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+
+  .email-input, .subscribe-btn {
+    height: 45px;
+    font-size: 14px;
+  }
+}
+
+
+/*footer*/
+.footer-FFF {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background: #0C6B90;
+      overflow: hidden;
+      border-top-left-radius: 61px;
+      border-top-right-radius: 61px;
+      font-family: Oxygen, sans-serif;
+      color: white;
+    }
+    .title {
+      position: absolute;
+      left: 158px;
+      top: 56px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+    .subtitle {
+      position: absolute;
+      width: 222px;
+      left: 158px;
+      top: 110px;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 36px;
+    }
+    .contact-title {
+      position: absolute;
+      left: 1126px;
+      top: 58px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+    .contact-number {
+      position: absolute;
+      left: 1126px;
+      top: 113px;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 36px;
+    }
+    .support {
+      position: absolute;
+      left: 1126px;
+      top: 163px;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 36px;
+    }
+    .for-hosts-title {
+      position: absolute;
+      left: 829px;
+      top: 56px;
+      font-weight: 700;
+    }
+    .for-hosts-link, .quick-links a {
+      position: absolute;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 36px;
+    }
+    .for-hosts-link:nth-child(2) { top: 111px; left: 829px; }
+    .for-hosts-link:nth-child(3) { top: 172px; left: 829px; }
+    .for-hosts-link:nth-child(4) { top: 233px; left: 829px; }
+
+    .quick-links-title {
+      position: absolute;
+      left: 510px;
+      top: 56px;
+      font-weight: 700;
+    }
+    .quick-links a:nth-child(2) { top: 114px; left: 510px; }
+    .quick-links a:nth-child(3) { top: 162px; left: 510px; }
+    .quick-links a:nth-child(4) { top: 210px; left: 510px; }
+    .quick-links a:nth-child(5) { top: 258px; left: 510px; }
+    .quick-links a:nth-child(6) { top: 306px; left: 510px; }
+
+    .footer-FFF {
+      width: 100%;
+      height: 450px;
+      position: relative;
+      background: #0C6B90;
+      overflow: hidden;
+      border-top-left-radius: 61px;
+      border-top-right-radius: 61px;
+    }
+    .footer-FFF img {
+      position: absolute;
+      opacity: 5.12;
+    }
+    .footer-FFF .footer-text {
+      position: absolute;
+      color: white;
+      font-size: 20px;
+      font-family: Oxygen;
+      line-height: 36px;
+      word-wrap: break-word;
+    }
+    .footer-bold {
+      font-weight: 700;
+    }
+    .footer-regular {
+      font-weight: 400;
+    }
+    .footer-logo {
+      position: absolute;
+      width: 200px;
+      height: 32px;
+      left: 519px;
+      top: 386px;
+    }
+    .footer-logo .dot {
+      width: 20px;
+      height: 17px;
+      left: 0px;
+      top: 5px;
+      position: absolute;
+      background: white;
+      border-radius: 9999px;
+    }
+    .footer-logo .star {
+      width: 20px;
+      height: 19px;
+      left: 3px;
+      top: 3px;
+      position: absolute;
+      color: #0C6B90;
+      font-size: 32px;
+      font-family: Jomhuria;
+      font-weight: 400;
+      letter-spacing: 1.92px;
+      word-wrap: break-word;
+    }
+    .footer-logo .name {
+      left: 27px;
+      top: 0px;
+      position: absolute;
+      color: white;
+      font-size: 24px;
+      font-family: Abhaya Libre ExtraBold;
+      font-weight: 800;
+      letter-spacing: 1.92px;
+      word-wrap: break-word;
+    }
+    .footer-line {
+      width: 1440.03px;
+      height: 0px;
+      left: -1px;
+      top: 364px;
+      position: absolute;
+      outline: 1px white solid;
+      outline-offset: -0.50px;
+    }
+  
+
+    @media screen and (max-width: 1200px) {
+      .card-row {
+        justify-content: center;
+      }
+
+      .featured-section {
+        padding: 50px 20px;
+      }
+    }
+
+    .card-details {
+    display: none;
+    padding: 16px;
+    background: #F1F1F1;
+    border-radius: 15px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.card.opened .card-details {
+    display: block;
+    max-height: 500px;  /* Adjust according to your content */
+    transition: max-height 0.5s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.homeStay__container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+    .homeStay__title {
+  color: #0C6B90;
+  font-size: 44px;
+  font-weight: 800;
+  font-family: 'Abhaya Libre ExtraBold', serif;
+  margin-bottom: 50px;
+  text-align: left;
+  margin-left: 0; /* Ensures it's left-aligned inside container */
+}
+
+
+    .homeStay__grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .homeStay__card {
+      background: #D9D9D9;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      width: 100%;
+      max-width: 330px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .homeStay__card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .homeStay__image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .homeStay__content {
+      background: #F9F9F9;
+      padding: 20px;
+    }
+
+    .homeStay__name {
+      color: #0C6B90;
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .homeStay__description {
+      font-size: 14px;
+      color: black;
+      margin-bottom: 10px;
+    }
+
+    .homeStay__price {
+      font-size: 16px;
+      color: black;
+      margin-bottom: 10px;
+    }
+
+    .homeStay__rating {
+      font-size: 12px;
+      color: black;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .homeStay__viewBtn {
+      background: white;
+      border: 1px solid #0C6B90;
+      color: #0C6B90;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .homeStay__viewBtn:hover {
+      background: #0C6B90;
+      color: white;
+    }
+
+    .homeStay__moreContainer {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .homeStay__moreBtn {
+      background: #0C6B90;
+      color: white;
+      padding: 12px 24px;
+      font-size: 20px;
+      font-weight: 700;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .homeStay__moreBtn:hover {
+      background: #09516a;
+    }
+
+    @media (max-width: 768px) {
+      .homeStay__title {
+        font-size: 2rem;
+      }
+
+      .homeStay__grid {
+        gap: 20px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="main-container">
+    <img class="bg-image" src="rajasthan page img.jpg" alt="Rajasthan background" />
+    <div class="overlay"></div>
+
+    <div class="navbar">
+      <div class="logo">
+        <div class="logo-circle"><span>*</span></div>
+        Local Lens
+      </div>
+      <img class="hamburger-icon" src="hamburger.png" alt="Menu" />
+      <div class="nav-links">
+        <div>Home</div>
+        <div>Destinations</div>
+        <div>Become A Host</div>
+        <div>Contact Us</div>
+        <div class="book-now">Book Now</div>
+      </div>
+    </div>
+    
+
+    <div class="content">
+      <h1>Experience the Royal Charm of Rajasthan</h1>
+      <p>Discover majestic forts, vibrant festivals, desert adventures, and timeless heritage across the Land of Kings!</p>
+      <div class="search-bar">
+        <img class="location-icon" src="Vector.png" alt="location icon">
+        <input type="text" placeholder="Search For Trips">
+        <button class="search-button"><img src="Search.png" alt="search icon" /></button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container">
+    <!-- Header and Sub Header Sections -->
+    <div class="header-section">
+        <div>Explore</div>
+    </div>
+    <div class="sub-header-section">
+        <div>Holiday Packages and Trips</div>
+    </div>
+
+    <!-- Category Buttons -->
+    <div class="category-buttons">
+        <div class="category-button">Current Events</div>
+        <div class="category-button">Local Guides</div>
+        <div class="category-button">Cuisines</div>
+        <div class="category-button">Markets</div>
+    </div>
+
+    <!-- Card Section -->
+    <div class="card-section">
+      <div class="card">
+        <img class="card-img" src="holiday pac 1.png" />
+        <div class="card-info">
+            <span class="card-title">Royal Rajasthan Retreat</span>
+            <br><br>
+            <span class="card-description">Explore the majestic forts, vibrant bazaars, and rich cultural heritage of Rajasthan.</span>
+            <br><br><br>
+            <span class="card-price">₹14,999 per person</span>
+        </div>
+        <div class="card-details">
+            <span>Additional Details: This is a premium tour offering the best of Rajasthan.</span>
+        </div>
+       
+        
+    </div>
+    
+        <div class="card">
+            <img class="card-img" src="holiday pac 2.png" />
+            <div class="card-info">
+                <span class="card-title">Desert Adventures in Jaipur</span>
+                <br>
+                <br>
+                <span class="card-description">Experience the golden sand dunes, camel safaris, and the charm of desert life.</span>
+                <br>
+                <br>
+                <span class="card-price">₹14,999 per person</span>
+            
+            </div>
+          
+           
+        </div>
+        <div class="card">
+            <img class="card-img" src="holiday pac 3.png" />
+            <div class="card-info">
+                <span class="card-title">Desert Royalty in Jaisalmer</span>
+                <br>
+                <br>
+                <span class="card-description">Experience the golden sands, royal havelis, and mesmerizing desert sunsets.</span>
+                <br>
+                <br>
+                <span class="card-price">₹8,499 per person</span>
+            </div>
+            
+           
+           
+        </div>
+    </div>
+    
+
+    <!-- Show More Button -->
+    
+    <div class="show-more">
+        <div class="show-more-button">
+            <div class="show-more-text">Show More</div>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<div class="homeStay__container">
+  <div class="homeStay__title">Hotels and Homestays</div>
+
+  <div class="homeStay__grid">
+    <!-- Card 1 -->
+    <div class="homeStay__card">
+      <img src="homestay 1.png" alt="Marwar Village Retreat" class="homeStay__image" />
+      <div class="homeStay__content">
+        <div class="homeStay__name">Marwar Village Retreat</div>
+        <div class="homeStay__description">Rustic village stay with traditional decor and painted mud walls</div>
+        <div class="homeStay__price">₹2000 per night</div>
+        <div class="homeStay__rating">⭐ 4.6 (120 reviews)</div>
+        <button class="homeStay__viewBtn">View More</button>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="homeStay__card">
+      <img src="homestay 2.png" alt="Aravalli Serenity Villa" class="homeStay__image" />
+      <div class="homeStay__content">
+        <div class="homeStay__name">Aravalli Serenity Villa</div>
+        <div class="homeStay__description">Elegant countryside villa with lush gardens and serene mountain views</div>
+        <div class="homeStay__price">₹4500 per night</div>
+        <div class="homeStay__rating">⭐ 4.9 (135 reviews)</div>
+        <button class="homeStay__viewBtn">View More</button>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="homeStay__card">
+      <img src="homestay 3.png" alt="Desert Oasis Tents" class="homeStay__image" />
+      <div class="homeStay__content">
+        <div class="homeStay__name">Desert Oasis Tents</div>
+        <div class="homeStay__description">Traditional Rajasthani tent stay with bonfire nights and cultural performances</div>
+        <div class="homeStay__price">₹3200 per night</div>
+        <div class="homeStay__rating">⭐ 4.8 (240 reviews)</div>
+        <button class="homeStay__viewBtn">View More</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="homeStay__moreContainer">
+    <button class="homeStay__moreBtn">Show More</button>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+<div class="main-container"> 
+  <div class="content-wrapper">
+      <div class="section-title">Unexplored in Rajasthan</div>
+
+      <div class="card-container">
+          <!-- Card 1: Kumbhalgarh Fort -->
+          <div class="card" style="background-image: url('https://placehold.co/333x428')">
+              <img src="unexplored 1.png" alt="Kumbhalgarh Fort">
+              <div class="card-overlay"></div>
+              <div class="card-titleU">Kumbhalgarh Fort<br/>Udaipur</div>
+              <div class="card-circle"></div>
+              <div class="card-icon">
+                  <div class="card-icon-inner">
+                      <img src="arrow-up.jpeg" alt="">
+                  </div>
+              </div>
+              <div class="explore-button">
+                  <div class="explore-button-text">Explore</div>
+              </div>
+
+              <!-- Expanded content that will be revealed when the card expands -->
+              <div class="card-expanded-details">
+                  <p>Discover the grandeur of Kumbhalgarh Fort, a UNESCO World Heritage site. Known for its massive walls and majestic architecture, it's a must-see for history and architecture enthusiasts.</p>
+                  <p>Location: Udaipur, Rajasthan</p>
+                  <p>Best Time to Visit: October - March</p>
+              </div>
+          </div>
+
+          <!-- Card 2: Jawai Bandh -->
+          <div class="card" style="background-image: url('https://placehold.co/333x428')">
+              <img src="unexplored 2.png" alt="Jawai Bandh">
+              <div class="card-overlay"></div>
+              <div class="card-titleU">Jawai Bandh<br/>Sumerpur</div>
+              <div class="card-circle"></div>
+              <div class="card-icon">
+                  <div class="card-icon-inner">
+                      <img src="arrow-up.jpeg" alt="">
+                  </div>
+              </div>
+              <div class="explore-button">
+                  <div class="explore-button-text">Explore</div>
+              </div>
+
+              <!-- Expanded content -->
+              <div class="card-expanded-details">
+                  <p>Jawai Bandh is famous for its scenic views and wildlife, especially the leopard sightings around the region. A unique blend of nature and wildlife, it's an offbeat destination in Rajasthan.</p>
+                  <p>Location: Sumerpur, Rajasthan</p>
+                  <p>Best Time to Visit: October - March</p>
+              </div>
+          </div>
+
+          <!-- Card 3: Bundi Palace -->
+          <div class="card" style="background-image: url('https://placehold.co/333x428')">
+              <img src="unexplored 3.png" alt="Bundi Palace">
+              <div class="card-overlay"></div>
+              <div class="card-titleU">Bundi Palace<br/>Bundi</div>
+              <div class="card-circle"></div>
+              <div class="card-icon">
+                  <div class="card-icon-inner">
+                      <img src="arrow-up.jpeg" alt="">
+                  </div>
+              </div>
+              <div class="explore-button">
+                  <div class="explore-button-text">Explore</div>
+              </div>
+
+              <!-- Expanded content -->
+              <div class="card-expanded-details">
+                  <p>Explore the Bundi Palace, a beautiful fusion of Rajput and Mughal architecture. Known for its intricate frescoes and carvings, the palace tells the story of Rajasthan's royal history.</p>
+                  <p>Location: Bundi, Rajasthan</p>
+                  <p>Best Time to Visit: October - March</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="subscribe-section">
+    <img class="bg-img" src="form bg pic.png" alt="Background Image" />
+    <div class="subscribe-overlay">
+      <div style="width: 100%; height: 100%; background: rgba(217, 217, 217, 0.13); border-radius: 61px"></div>
+    </div>
+  
+    <div class="subscribe-wrapper">
+      <div class="subscribe-left">
+        <h2>Start your adventure today!</h2>
+        <div>
+          <div class="subscribe-info"><strong>Subscribe to Updates</strong></div>
+          <div class="subscribe-info">Stay informed about local experiences and exclusive offers</div>
+        </div>
+      </div>
+  
+      <div class="subscribe-right">
+        <div class="subscribe-message">
+          Discover the beauty of India like never before. Sign up now to customize your trip and experience local culture firsthand!
+        </div>
+  
+        <div class="subscribe-buttons">
+          <div class="btn-explore">Explore</div>
+          <div class="btn-learn">Learn More</div>
+        </div>
+  
+        <div class="subscribe-form">
+          <div class="email-input" title="press 'S' to type Email">Your Email here</div>
+          <div class="subscribe-btn" title="Subscribe">Subscribe</div>
+  
+        
+        </div>
+      </div>
+      <div id="notification" style="display:none; background-color: #0C6B90; color: white; padding: 10px; border-radius: 25px; margin-top: 10px;">
+        You will get updates!
+      </div>
+      
+      <!-- Messages list -->
+      <ul id="messages-list"></ul>
+    </div>
+  </div>
+
+
+  <br>
+
+
+<div class="footer-FFF">
+  <img src="footer img 1.png" style="width: 510px; height: 405px; left: 0px; top: 51px;" />
+  <img src="footer img 2.png" style="width: 741px; height: 456px; left: 699px; top: 0px;" />
+
+  <div class="footer-text footer-bold" style="width: 125px; height: 23px; left: 158px; top: 56px;">Local Lens</div>
+  <div class="footer-text footer-regular" style="width: 222px; height: 144px; left: 158px; top: 110px;">Connecting travellers with authentic local experiences worldwide</div>
+
+  <div class="footer-text footer-bold" style="width: 129px; height: 24px; left: 1126px; top: 58px;">Contact Us</div>
+  <div class="footer-text footer-regular" style="width: 170px; height: 30px; left: 1126px; top: 113px;">(800) 123-4567</div>
+  <div class="footer-text footer-regular" style="width: 136px; height: 30px; left: 1126px; top: 163px;">24/7 support</div>
+
+  <div class="footer-text footer-bold" style="width: 120px; height: 24px; left: 829px; top: 56px;">For Hosts</div>
+  <div class="footer-text footer-regular" style="width: 160px; height: 41px; left: 829px; top: 111px;">Become a host</div>
+  <div class="footer-text footer-regular" style="width: 130px; height: 41px; left: 829px; top: 172px;">Host Resources Community</div>
+
+  <div class="footer-text footer-bold" style="width: 136px; height: 27px; left: 510px; top: 56px;">Quick Links</div>
+  <div class="footer-text footer-regular" style="width: 167px; height: 28px; left: 510px; top: 114px;">About Us</div>
+  <div class="footer-text footer-regular" style="width: 189px; height: 28px; left: 510px; top: 162px;">How it Works</div>
+  <div class="footer-text footer-regular" style="width: 167px; height: 28px; left: 510px; top: 210px;">Local Guide</div>
+  <div class="footer-text footer-regular" style="width: 102px; height: 28px; left: 510px; top: 258px;">Safety</div>
+  <div class="footer-text footer-regular" style="width: 110px; height: 28px; left: 510px; top: 306px;">Support</div>
+
+  <div class="footer-text footer-regular" style="width: 400px; height: 36px; left: 717px; top: 390px;">@Local Lens. All Rights Reserved.</div>
+
+  <div class="footer-logo">
+    <div class="dot"></div>
+    <div class="star">*</div>
+    <div class="name">Local Lens</div>
+  </div>
+
+  <div class="footer-line"></div>
+</div>
+
+
+
+
+<script src="script3.js"></script>
+</body>
+</html>

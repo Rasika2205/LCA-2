@@ -1,0 +1,2276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Website Landing Page</title>
+
+  <!-- ✅ Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Oxygen', sans-serif;
+    }
+
+    body {
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0C6B90;
+      opacity: 0.52;
+      z-index: 1;
+    }
+
+    /* Navbar */
+   /* Navbar */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  z-index: 3;
+}
+
+.navbar .logo {
+  font-size: 32px;
+  font-family: 'Abhaya Libre', serif;
+  font-weight: 800;
+  letter-spacing: 1.92px;
+  color: #005276;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #F9F9F9;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.book-now {
+  background: #096488;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.book-now:hover {
+  background: white;
+  color: #096488;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none; /* Initially hidden */
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* Show the hamburger on mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide nav links on mobile */
+    flex-direction: column;
+    width: 100%;
+    background-color: #0C6B90;
+    position: absolute;
+    top: 70px; /* Adjust this based on navbar height */
+    left: 0;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger */
+  }
+}
+
+/* Show nav links when hamburger is clicked */
+.nav-links.active {
+  display: flex; /* Show nav links */
+}
+
+
+    /* Hero content */
+    .hero-content {
+      position: absolute;
+      z-index: 2;
+      text-align: center;
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-title {
+      color: white;
+      font-size: 140px;
+      font-family: 'Abhaya Libre', serif;
+      font-weight: 800;
+    }
+
+    .hero-subtitle {
+      color: white;
+      font-size: 64px;
+      font-family: 'Abhaya Libre', serif;
+      font-weight: 800;
+      margin-top: 20px;
+    }
+
+    .hero-description {
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 36px;
+      margin-top: 20px;
+      max-width: 800px;
+    }
+
+    .search-bar {
+      width: 90%;
+      max-width: 600px;
+      height: 50px;
+      background: white;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      position: relative;
+      z-index: 3;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .search-bar input {
+      border: none;
+      outline: none;
+      flex-grow: 1;
+      font-size: 16px;
+      font-weight: 400;
+      color: #999999;
+      text-align: start;
+    }
+
+    /* Adjust vector icon */
+.search-bar img {
+  width: 24px; /* Adjusted size for better fit */
+  height: 24px; /* Keep it proportional */
+  margin-right: 10px; /* Space between input and icon */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: row;
+    padding: 8px 15px; /* Reduced padding for a more compact box */
+    gap: 10px;
+    width: 100%;
+    height: auto; /* Ensure height is automatically adjusted */
+    align-items: center; /* Center the content vertically */
+  }
+  .search-bar input {
+    width: calc(100% - 30px); /* Adjust width to fit the icon */
+    font-size: 16px;
+    padding: 6px 10px; 
+  }
+
+  /* Resize the icon for mobile */
+  .search-bar img {
+    width:0px; /* Smaller icon for mobile */
+    height: 20px; /* Keep it proportional */
+    margin-right: 8px; /* Adjust margin */
+  }
+}
+
+    @media (max-width: 1024px) {
+  .hero-title {
+    font-size: 80px;
+  }
+
+  .hero-subtitle {
+    font-size: 40px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+    line-height: 28px;
+    padding: 0 20px;
+  }
+
+  .search-bar {
+    flex-direction: row;
+    padding: 8px 12px;
+    height: auto;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    padding: 60px 20px;
+    background-size: 300px, 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .hero-title {
+    font-size: 60px;
+  }
+
+  .hero-subtitle {
+    font-size: 28px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+    line-height: 26px;
+  }
+
+  .search-bar {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 20px;
+  }
+
+  .search-bar input {
+    text-align: left;
+    width: 100%;
+  }
+
+  .hero-section {
+    padding: 40px 20px;
+  }
+
+  .hero-section .content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .left-text,
+  .right-text {
+    width: 100%;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .hero-subtitle {
+    font-size: 20px;
+  }
+
+  .navbar .logo {
+    font-size: 24px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .search-bar img {
+    display: none;
+  }
+
+  .search-bar input {
+    font-size: 14px;
+  }
+}
+
+    /* Section below hero */
+  .hero-section {
+  background-color: #e6f2f9;
+  background-image: 
+    url('map bg img.jpeg'), 
+    url('map bg img.jpeg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: left bottom, right top;
+  background-size: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 40px;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+    .left-text {
+      flex: 1;
+      color: #0C6B90;
+      font-size: 44px;
+      font-family: 'Abhaya Libre', serif;
+      font-weight: 800;
+      word-wrap: break-word;
+    }
+
+    .left-text span {
+      display: block;
+      font-size: 24px;
+      color: #323435;
+      font-family: 'Oxygen', sans-serif;
+      font-weight: 700;
+      line-height: 36px;
+      margin-bottom: 10px;
+    }
+
+    .right-text {
+      flex: 1;
+      color: #323435;
+      font-size: 24px;
+      font-family: 'Oxygen', sans-serif;
+      font-weight: 700;
+      line-height: 36px;
+      word-wrap: break-word;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Oxygen', sans-serif;
+      background-color: #ffffff;
+    }
+
+    /* Cards Section */
+    .card-section {
+      background-color: #0C6B90;
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      border-radius: 61px 61px 61px 61px;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Center the cards */
+      column-gap: 120px; /* Space between columns */
+      row-gap: 40px; /* Space between rows */
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .card {
+      background-color: white;
+      box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      width: 100%;
+      max-width: 380px; /* Set card width to fit two per row */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      min-height: 460px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card img {
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      object-fit: cover;
+      
+    }
+
+    .card h3 {
+      color: #323435;
+      font-size: 20px;
+      font-weight: 700;
+      margin: 16px 0 8px;
+    }
+
+    .card p {
+      font-size: 16px;
+      color: #323435;
+      margin: 0;
+      flex-grow: 1;
+    }
+
+    .buttons {
+      margin-top: 40px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-family: 'Oxygen', sans-serif;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-learn {
+      background-color: white;
+      color: #005276;
+    }
+
+    .btn-signup {
+      background-color: #1DB1D4;
+      color: white;
+    }
+
+    .btn-learn:hover,
+    .btn-signup:hover {
+      opacity: 0.85;
+    }
+
+
+
+    .ITENERARYhero-section {
+      display: flex;
+      gap: 40px;
+      padding: 60px 40px;
+      align-items: stretch;
+    }
+
+    .hero-left {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 20px;
+      max-height: 550px;
+      background: transparent;
+    }
+
+    .map-background {
+      position: absolute;
+      background: url('2nd map bg img.png') no-repeat left top;
+      width: 100%;
+      height: 100%;
+      opacity: 3;
+      z-index: 0;
+      object-fit: contain;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 1;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .hero-heading {
+      color: #0C6B90;
+      font-size: 36px;
+      font-family: 'Abhaya Libre ExtraBold', serif;
+      font-weight: 800;
+    }
+
+    .hero-descriptionpls {
+      color: #323435;
+      font-size: 20px;
+      line-height: 1.5;
+      margin: 30px 0;
+    }
+
+    .hero-icons {
+      display: flex;
+      gap: 150px;
+    }
+
+    .hero-icon {
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .hero-icon img {
+      width: 32px;
+      margin-bottom: 5px;
+    }
+
+    .hero-right {
+      width: 400px;
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 5px 5px 4px 1px rgba(0, 0, 0, 0.25);
+    }
+    @media (max-width: 1024px) {
+  .ITENERARYhero-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 20px;
+  }
+
+  .hero-left, .hero-right {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-heading {
+    font-size: 30px;
+  }
+
+  .hero-descriptionpls {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+
+  .hero-icons {
+    gap: 60px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .hero-icon img {
+    width: 28px;
+  }
+
+  .hero-right img {
+    height: auto;
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-heading {
+    font-size: 26px;
+    text-align: center;
+  }
+
+  .hero-descriptionpls {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .hero-left {
+    padding: 20px;
+    align-items: center;
+  }
+
+  .hero-text {
+    max-width: none;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-icons {
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .hero-icon {
+    font-size: 14px;
+  }
+
+  .hero-right img {
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-heading {
+    font-size: 22px;
+  }
+
+  .hero-descriptionpls {
+    font-size: 14px;
+  }
+
+  .hero-icons {
+    gap: 20px;
+  }
+
+  .hero-icon img {
+    width: 24px;
+  }
+
+  button {
+    width: 100%;
+    padding: 8px;
+    border-radius: 15px;
+  }
+
+  .hero-right img {
+    max-height: 300px;
+  }
+}
+
+  
+/*gems section*/
+    
+    .gems-section {
+      background: url('2nd map bg img.png') no-repeat right center;
+      background-size: 600px, 700px;
+      background-color: #ffffff;
+      padding: 80px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .gems-content {
+      display: flex;
+      max-width: 1200px;
+      width: 100%;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .image-side img {
+      width: 500px;
+      height: 591px;
+      border-radius: 20px;
+      box-shadow: 5px 5px 4px 1px rgba(0, 0, 0, 0.25);
+    }
+
+    .text-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .text-side h2 {
+      color: #0C6B90;
+      font-size: 36px;
+      font-family: 'Abhaya Libre ExtraBold', serif;
+      font-weight: 800;
+    }
+
+    .text-side p {
+      font-size: 20px;
+      color: #323435;
+      line-height: 36px;
+    }
+
+    .features-row {
+      display: flex;
+      gap: 40px;
+    }
+
+    .feature {
+      flex: 1;
+    }
+
+    .feature h4 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #323435;
+      margin-bottom: 10px;
+      transition: color 1s ease; 
+    }
+ 
+
+    .feature p {
+      font-size: 20px;
+      font-weight: 400;
+      color: #323435;
+      line-height: 36px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .btn-primary {
+      padding: 10px 20px;
+      background-color: #0C6B90;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 20px;
+      font-weight: 700;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+    }
+
+    .btn-outline {
+      padding: 10px 20px;
+      background-color: white;
+      color: #0C6B90;
+      border: 1px solid #0C6B90;
+      border-radius: 30px;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    /* Hover effect for Explore button */
+.btn-primary:hover {
+  background-color: #095874;
+  transform: scale(1.05);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for Learn More button */
+.btn-outline:hover {
+  background-color: white;
+  color: #0C6B90;
+  transform: scale(1.05);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+    @media (max-width: 1024px) {
+  .gems-content {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .image-side img {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+  }
+
+  .text-side {
+    align-items: center;
+    text-align: center;
+  }
+
+  .text-side h2 {
+    font-size: 30px;
+  }
+
+  .text-side p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .features-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .feature h4 {
+    font-size: 18px;
+  }
+
+  .feature p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gems-section {
+    padding: 60px 20px;
+    background-size: 300px, auto;
+    background-position: right top;
+  }
+
+  .text-side h2 {
+    font-size: 24px;
+  }
+
+  .text-side p,
+  .feature p {
+    font-size: 14px;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+/*destination 9 cards*/
+    .dest-section {
+  margin: 0;
+  font-family: 'Oxygen', sans-serif;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.84) 0%, rgba(172, 226, 247, 0.59) 40%, rgba(255, 255, 255, 0.84) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.dest-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+}
+
+.dest-heading {
+  font-size: 36px;
+  color: #0C6B90;
+  font-family: 'Abhaya Libre ExtraBold', serif;
+  font-weight: 1000;
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.dest-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+
+.dest-card {
+  width: 300px;
+  height: 420px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.25);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+}
+
+.dest-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(50, 52, 53, 0.3);
+  z-index: 0;
+}
+
+.dest-card-content {
+  position: relative;
+  padding: 20px;
+  z-index: 1;
+}
+
+.dest-card-title {
+  font-family: 'Abhaya Libre ExtraBold', serif;
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.dest-card-desc {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+}
+
+.button-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cta-button {
+    padding: 8px 20px;
+    background: #0C6B90;
+    border-radius: 30px;
+    outline: 1px solid #0C6B90;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: Oxygen, sans-serif;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .cta-button:hover {
+    transform: scale(1.05);
+  }
+
+
+
+.blur-bg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(93deg, rgba(255, 255, 255, 0.47) 0%, rgba(172, 226, 247, 0.33) 50%, rgba(255, 255, 255, 0.47) 100%);
+  box-shadow: 10px 10px 10px;
+  filter: blur(5px);
+}
+
+
+
+
+.dest-card {
+  transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+}
+
+.dest-card:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+.dest-card-content {
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.dest-card:hover .dest-card-content {
+  transform: translateY(-10px);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+    
+    .featured-section {
+      width: 100%;
+      background: #073F54;
+      padding: 70px 160px;
+      border-radius: 61px;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .featured-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 55px;
+    }
+
+    .featured-title {
+      color: white;
+      font-size: 44px;
+      font-family: 'Abhaya Libre ExtraBold', serif;
+      font-weight: 800;
+    }
+
+    .card-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 39px;
+      justify-content: center;
+    }
+
+    .experience-card {
+      width: 348px;
+      height: 578px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .experience-card img {
+      width: 100%;
+      height: 332px;
+      object-fit: cover;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    .card-content {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .card-content h3 {
+      font-family: 'Abhaya Libre ExtraBold', serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: #323435;
+      margin: 0;
+    }
+
+    .card-content p {
+      font-size: 16px;
+      color: #323435;
+      margin: 0;
+    }
+
+    .card-location {
+      color: #979498;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .card-price {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0C6B90;
+      min-width: 110px;
+    }
+
+    .book-btn {
+      background-color: #0C6B90;
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+      border-radius: 30px;
+      padding: 10px 20px;
+      font-family: 'Oxygen', sans-serif;
+      border: none;
+      cursor: pointer;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .testimonial-section {
+      width: 100%;
+      position: relative;
+      background: white;
+      padding: 60px 160px;
+      box-sizing: border-box;
+    }
+
+    .testimonial-section img.map-bg-left {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 400px;
+      height: 547px;
+      opacity: 3;
+    }
+
+    .testimonial-section img.map-bg-right {
+      position: absolute;
+      right: 0;
+      top: 310px;
+      width: 593px;
+      height: 547px;
+      opacity: 3;
+    }
+
+    .testimonial-wrapper {
+      position: relative;
+      z-index: 2;
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 45px;
+    }
+
+    .testimonial-title {
+      font-size: 44px;
+      font-family: 'Abhaya Libre ExtraBold', serif;
+      font-weight: 800;
+      color: #0C6B90;
+      text-align: center;
+    }
+
+    .testimonial-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    .testimonial-card {
+      background: #F9F9F9;
+      border-radius: 20px;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      width: 297px;
+      min-height: 265px;
+      padding: 22px 19px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .user-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .user-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 27px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+      font-family: 'Oxygen', sans-serif;
+      font-weight: 400;
+    }
+
+    .user-name {
+      font-size: 20px;
+      font-family: 'Oxygen', sans-serif;
+      color: #323435;
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      color: black;
+      line-height: 1.5;
+    }
+
+    .testimonial-rating {
+      font-size: 20px;
+      color: #0C6B90;
+      font-weight: 400;
+    }
+
+    .testimonial-date {
+      font-size: 13px;
+      color: #999;
+    }
+
+    .host-section {
+      position: relative;
+      width: 100%;
+      height: 776px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0;
+      box-sizing: border-box;
+    }
+
+    .host-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.84), rgba(172, 226, 247, 0.59) 40%, rgba(255, 255, 255, 0.84));
+      box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+      filter: blur(5px);
+      z-index: 0;
+    }
+
+    .host-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      padding: 0 20px;
+    }
+
+    .host-text {
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .host-text h2 {
+      font-size: 44px;
+      font-family: 'Abhaya Libre ExtraBold', serif;
+      font-weight: 800;
+      color: #0C6B90;
+      margin: 0;
+    }
+
+    .host-text p {
+      font-size: 24px;
+      color: #323435;
+      line-height: 36px;
+      margin: 0;
+    }
+
+    .host-button {
+      background-color: #0C6B90;
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+      border-radius: 30px;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      width: fit-content;
+      font-family: 'Oxygen', sans-serif;
+      box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .host-image {
+      width: 500px;
+      height: 591px;
+      border-radius: 20px;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+      object-fit: cover;
+    }
+    @media (max-width: 1024px) {
+  .host-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .host-text {
+    align-items: center;
+  }
+
+  .host-text h2 {
+    font-size: 36px;
+  }
+
+  .host-text p {
+    font-size: 20px;
+    line-height: 1.5;
+    padding: 0 10px;
+  }
+
+  .host-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .host-section {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .host-text h2 {
+    font-size: 28px;
+  }
+
+  .host-text p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .host-button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .host-image {
+    max-width: 100%;
+    border-radius: 15px;
+  }
+}
+
+    /*subscribe section*/
+    .subscribe-section {
+      position: relative;
+      width: 100%;
+      height: 483px;
+      overflow: hidden;
+      border-radius: 61px;
+    }
+
+    .subscribe-section img.bg-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 61px;
+    }
+
+    .subscribe-overlay {
+      position: absolute;
+      top: 5px;
+      left: 0;
+      width: 100%;
+      height: 483px;
+      background: rgba(217, 217, 217, 0.13);
+      border-radius: 61px;
+      opacity: 50%;
+    }
+
+    .subscribe-wrapper {
+      position: absolute;
+      top: 50px;
+      left: 130px;
+      width: calc(100% - 260px);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 86px;
+      align-items: flex-end;
+      z-index: 1;
+    }
+
+    .subscribe-left {
+      width: 502px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .subscribe-left h2 {
+      color: white;
+      font-size: 44px;
+      font-family: 'Abhaya Libre ExtraBold', serif;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .subscribe-info {
+      color: white;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .subscribe-right {
+      width: 592px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .subscribe-message {
+      color: #323435;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+
+    .subscribe-buttons {
+      display: flex;
+      gap: 45px;
+    }
+
+    .btn-explore, .btn-learn {
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 20px;
+      font-family: 'Oxygen', sans-serif;
+      line-height: 30px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    .btn-explore {
+      background: #0C6B90;
+      color: white;
+    }
+
+    .btn-learn {
+      background: white;
+      color: #0C6B90;
+    }
+
+    .subscribe-form {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .email-input, .subscribe-btn {
+      height: 50px;
+      padding: 10px;
+      border-radius: 30px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-family: 'Oxygen', sans-serif;
+      line-height: 24px;
+      color: #0C6B90;
+      font-weight: 400;
+    }
+
+    .email-input {
+      width: 273px;
+    }
+
+    .subscribe-btn {
+      width: 131px;
+      cursor: pointer;
+    }
+    @media (max-width: 1024px) {
+  .subscribe-wrapper {
+    flex-direction: column;
+    align-items: center;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    gap: 40px;
+  }
+
+  .subscribe-left, .subscribe-right {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .subscribe-left h2 {
+    font-size: 36px;
+  }
+
+  .subscribe-message {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .subscribe-buttons {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .subscribe-form {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .email-input, .subscribe-btn {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .subscribe-left h2 {
+    font-size: 28px;
+  }
+
+  .subscribe-message {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .btn-explore, .btn-learn {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+
+  .email-input, .subscribe-btn {
+    height: 45px;
+    font-size: 14px;
+  }
+}
+/*footer*/
+    .container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background: #0C6B90;
+      overflow: hidden;
+      border-top-left-radius: 61px;
+      border-top-right-radius: 61px;
+      font-family: Oxygen, sans-serif;
+      color: white;
+    }
+    .title {
+      position: absolute;
+      left: 158px;
+      top: 56px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+    .subtitle {
+      position: absolute;
+      width: 222px;
+      left: 158px;
+      top: 110px;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 36px;
+    }
+    .contact-title {
+      position: absolute;
+      left: 1126px;
+      top: 58px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+    .contact-number {
+      position: absolute;
+      left: 1126px;
+      top: 113px;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 36px;
+    }
+    .support {
+      position: absolute;
+      left: 1126px;
+      top: 163px;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 36px;
+    }
+    .for-hosts-title {
+      position: absolute;
+      left: 829px;
+      top: 56px;
+      font-weight: 700;
+    }
+    .for-hosts-link, .quick-links a {
+      position: absolute;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 36px;
+    }
+    .for-hosts-link:nth-child(2) { top: 111px; left: 829px; }
+    .for-hosts-link:nth-child(3) { top: 172px; left: 829px; }
+    .for-hosts-link:nth-child(4) { top: 233px; left: 829px; }
+
+    .quick-links-title {
+      position: absolute;
+      left: 510px;
+      top: 56px;
+      font-weight: 700;
+    }
+    .quick-links a:nth-child(2) { top: 114px; left: 510px; }
+    .quick-links a:nth-child(3) { top: 162px; left: 510px; }
+    .quick-links a:nth-child(4) { top: 210px; left: 510px; }
+    .quick-links a:nth-child(5) { top: 258px; left: 510px; }
+    .quick-links a:nth-child(6) { top: 306px; left: 510px; }
+
+    .footer-container {
+      width: 100%;
+      height: 450px;
+      position: relative;
+      background: #0C6B90;
+      overflow: hidden;
+      border-top-left-radius: 61px;
+      border-top-right-radius: 61px;
+    }
+    .footer-container img {
+      position: absolute;
+      opacity: 5.12;
+    }
+    .footer-container .footer-text {
+      position: absolute;
+      color: white;
+      font-size: 20px;
+      font-family: Oxygen;
+      line-height: 36px;
+      word-wrap: break-word;
+    }
+    .footer-bold {
+      font-weight: 700;
+    }
+    .footer-regular {
+      font-weight: 400;
+    }
+    .footer-logo {
+      position: absolute;
+      width: 200px;
+      height: 32px;
+      left: 519px;
+      top: 386px;
+    }
+    .footer-logo .dot {
+      width: 20px;
+      height: 17px;
+      left: 0px;
+      top: 5px;
+      position: absolute;
+      background: white;
+      border-radius: 9999px;
+    }
+    .footer-logo .star {
+      width: 20px;
+      height: 19px;
+      left: 3px;
+      top: 3px;
+      position: absolute;
+      color: #0C6B90;
+      font-size: 32px;
+      font-family: Jomhuria;
+      font-weight: 400;
+      letter-spacing: 1.92px;
+      word-wrap: break-word;
+    }
+    .footer-logo .name {
+      left: 27px;
+      top: 0px;
+      position: absolute;
+      color: white;
+      font-size: 24px;
+      font-family: Abhaya Libre ExtraBold;
+      font-weight: 800;
+      letter-spacing: 1.92px;
+      word-wrap: break-word;
+    }
+    .footer-line {
+      width: 1440.03px;
+      height: 0px;
+      left: -1px;
+      top: 364px;
+      position: absolute;
+      outline: 1px white solid;
+      outline-offset: -0.50px;
+    }
+  
+
+    @media screen and (max-width: 1200px) {
+      .card-row {
+        justify-content: center;
+      }
+
+      .featured-section {
+        padding: 50px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+ <!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">Local Lens</div>
+  <div class="nav-links" id="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Destinations</a>
+    <a href="#">Become A Host</a>
+    <a href="#">Contact Us</a>
+    <a href="#" class="book-now">Book Now</a>
+  </div>
+  <!-- Hamburger Menu Icon -->
+  <img src="hamburger.png" class="hamburger" id="hamburger" alt="Hamburger Menu" />
+</nav>
+
+  <!-- Hero Section -->
+  <div class="image-container">
+    <img src="yes 1.png" alt="Background Image" />
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-title">Local Lens</div>
+      <div class="hero-subtitle">Discover Authentic Local Experiences in India</div>
+      <div class="hero-description">
+        At Local Lens, we connect you with the heart of India through unique local experiences. 
+        Explore vibrant cultures, hidden gems and personalised itineraries that make your journey unforgettable!
+      </div>
+      <div class="search-bar">
+        <img src="Vector.png" alt="Search Icon">
+        <input type="text" placeholder="Where would you like to explore?">
+        <div style="position: absolute; right: 10px;">
+          <div style="width: 85px; height: 47px; background: #0C6B90; border-radius: 30px;"></div>
+          <img style="width: 28px; height: 28px; position: absolute; top: 10px; right: 28px;" src="Search.png" alt="Go"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info Section -->
+  <section class="hero-section">
+    <div class="content">
+      <div class="left-text">
+        
+        <span>Explore</span>
+        Discover Authentic Local Experiences in India
+      </div>
+      <div class="right-text">
+        At Local Lens, we connect you with the heart of India through unique local experiences. 
+        Explore vibrant cultures, hidden gems and personalised itineraries that make your journey unforgettable!
+      </div>
+    </div>
+  </section>
+
+  <!-- Cards Section -->
+  <div class="card-section">
+    <div class="cards-container">
+      <div class="card">
+        <img src="Current events.jpeg" alt="Event Image"/>
+        <h3>Stay updated with current local events</h3>
+        <p>Stay connected with the latest festivals, fairs, and gatherings in your area.</p>
+      </div>
+      <div class="card">
+        <img src="local guide.jpeg" alt="Local Guide Image"/>
+        <h3>Meet local guides for authentic insights</h3>
+        <p>Connect with local experts for unique and authentic experiences.</p>
+      </div>
+      <div class="card">
+        <img src="cuisines.jpeg" alt="Cuisine Image"/>
+        <h3>Savor the flavour of local cuisines</h3>
+        <p>Enjoy authentic local flavors and culinary delights.</p>
+      </div>
+      <div class="card">
+        <img src="markets.jpeg" alt="Markets Image"/>
+        <h3>Discover local markets</h3>
+        <p>Explore vibrant local markets and hidden gems.</p>
+      </div>
+    </div>
+    <br> 
+    <div class="buttons">
+      <button class="btn-learn">Learn more</button>
+      <button class="btn-signup">Sign up</button>
+    </div>
+  
+  </div>
+
+
+
+
+
+
+  <!--idk whats wrong here-->
+  <div class="ITENERARYhero-section">
+    <!-- Left Section -->
+    <div class="hero-left">
+      <div class="hero-text">
+        <div class="hero-heading">
+          Discover Tailored Itineraries for Unique Travel Experiences
+        </div>
+        <div class="hero-descriptionpls">
+          At Local Lens, we empower you to create personalised travel itineraries that reflect your interests. Explore India’s vibrant culture and hidden gems with our customizable trip options.
+        </div>
+        <button onclick="toggleInfo()" style="margin-top: 20px; padding: 10px 20px; background-color: #0C6B90; color: white; border: none; border-radius: 20px; cursor: pointer;">
+          Learn More
+        </button>
+        
+        <p id="extra-info" style="display: none; color: #323435; font-size: 14px; margin-top: 20px;">
+          Local Lens offers curated experiences that go beyond typical tourism — connect with locals and uncover stories behind every destination.
+        </p>
+        <br>
+        <div class="hero-icons">
+          <div class="hero-icon">
+            <img src="cube.jpeg" alt="Custom Itineraries">
+            <div>Custom Itineraries</div>
+          </div>
+          <div class="hero-icon">
+            <img src="cube.jpeg" alt="Book Trips">
+            <div>Book Trips</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="hero-right">
+      <img src="1st.jpeg" alt="Travel Destination">
+    </div>
+  </div>
+
+
+ <!-- uncover the hidden gems of india -->
+  <section class="gems-section">
+    <div class="gems-content">
+      <div class="image-side">
+        <img src="2nd.jpeg" alt="Scenic View" />
+      </div>
+      <div class="text-side">
+        <h2 id="section-title">Uncover the Hidden Gems of India</h2>
+
+        <p>Explore the lesser-known treasures of India with Local Lens. Our curated experiences reveal the vibrant culture and unique stories of each destination.</p>
+
+        <div class="features-row">
+          <div class="feature">
+            <h4>Cultural Insights</h4>
+            <p>Experience authentic local traditions and hidden spots that enrich your journey</p>
+          </div>
+          <div class="feature">
+            <h4>Local Delights</h4>
+            <p>Taste the flavors of India through its local cuisines and vibrant markets.</p>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button class="btn-primary">Explore</button>
+          <button class="btn-outline">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div>
+
+
+    
+ <div class="dest-section">
+  <div class="dest-wrapper">
+    <div class="dest-heading">Choose from a range of Destinations</div>
+    <div class="dest-cards">
+
+      <!-- Existing Cards -->
+      <div class="dest-card" style="background-image: url('HP.jpeg');">
+        <div style="width: 100%; height: 100%; left: 0px; top: 0px; position: absolute; background: rgba(50, 52, 53, 0.30); border-radius: 20px"></div>
+        <div class="dest-card-content">
+          <div class="dest-card-title">Himachal Pradesh</div>
+          <div class="dest-card-desc">Breathtaking mountain trails<br/>Cozy towns and pine forests</div>
+        
+
+          <div >
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="dest-card" style="background-image: url('Goa.jpeg');">
+        <div style="width: 100%; height: 100%; left: 0px; top: 0px; position: absolute; background: rgba(50, 52, 53, 0.30); border-radius: 20px"></div>
+        <div class="dest-card-content">
+          <div class="dest-card-title">Goa</div>
+          <div class="dest-card-desc">Sun, sand, and sea breeze<br/>Lively beaches and old forts
+
+          </div>
+        </div>
+      </div>
+
+      <a href="rajasthan.html" title="click here" style="text-decoration: none; color: inherit;">
+        <div class="dest-card" style="background-image: url('raj img.png');">
+          <div style="width: 100%; height: 100%; left: 0px; top: 0px; position: absolute; background: rgba(50, 52, 53, 0.30); border-radius: 20px"></div>
+          <div class="dest-card-content">
+            <div class="dest-card-title">Rajasthan</div>
+            <div class="dest-card-desc">Royal palaces and forts<br/>Desert adventures await</div>
+          </div>
+        </div>
+      </a>
+      
+
+      
+
+      
+
+      <!-- Remaining Cards -->
+      <div class="dest-card" style="background-image: url('kerala.jpeg');">
+        <div style="width: 100%; height: 100%; left: 0px; top: 0px; position: absolute; background: rgba(50, 52, 53, 0.30); border-radius: 20px"></div>
+        <div class="dest-card-content">
+          <div class="dest-card-title">Kerala</div>
+          <div class="dest-card-desc">Backwaters and lush greenery<br/>God's own country awaits</div>
+        </div>
+      </div>
+
+      <div class="dest-card" style="background-image: url('gujrat.jpeg');">
+        <div style="width: 100%; height: 100%; left: 0px; top: 0px; position: absolute; background: rgba(50, 52, 53, 0.30); border-radius: 20px"></div>
+        <div class="dest-card-content">
+          <div class="dest-card-title">Gujarat</div>
+          <div class="dest-card-desc">Land of culture & wildlife<br/>History in every corner</div>
+        </div>
+      </div>
+
+      <div class="dest-card" style="background-image: url('Hampi.jpeg');">
+        <div style="width: 100%; height: 100%; left: 0px; top: 0px; position: absolute; background: rgba(50, 52, 53, 0.30); border-radius: 20px"></div>
+        <div class="dest-card-content">
+          <div class="dest-card-title">Hampi</div>
+          <div class="dest-card-desc">Ancient ruins & boulder landscapes <br/>Step into a timeless era</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+ <br>
+ <br>
+</div>
+<div class="button-container">
+  <a href="destinations page.html" id="exploreBtn">Explore More</a>
+</div>
+
+</div>
+
+  </div>
+</div>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+
+<br>
+
+    
+</div>
+
+<div class="featured-section">
+  <div class="featured-wrapper">
+    <div class="featured-title">Featured Experiences</div>
+
+    <div class="card-row">
+
+      <!-- Card 1 -->
+      <div class="experience-card">
+        <img src="boat ride.png" alt="Boat Ride">
+        <div class="card-content">
+          <div>
+            <h3>Boat Ride</h3>
+            <br>
+            <p>Take a Boat Ride to go veggie shopping in Srinagar!</p>
+            <p class="card-location">Srinagar, Jammu & Kashmir</p>
+          </div>
+          <div class="card-bottom">
+            <div class="card-price">Rs. 500 per person</div>
+            <button class="book-btn" title="Press 'B' to book">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="experience-card">
+        <img src="street art.png" alt="Street Art Tour">
+        <div class="card-content">
+          <div>
+            <h3>Street Art Tour</h3>
+            <br>
+            <p>Take a look at the hidden Street Art Tour in Mumbai!</p>
+            <p class="card-location">Mumbai, Maharashtra</p>
+          </div>
+          <div class="card-bottom">
+            <div class="card-price">Rs. 200 per person</div>
+            <button class="book-btn" title="Press 'B' to book">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="experience-card">
+        <img src="peda making.png" alt="Peda Making">
+        <div class="card-content">
+          <div>
+            <h3>Traditional Peda Making</h3>
+            <br>
+            <p>Try your hand at traditional peda making workshop in Rajkot!</p>
+            <p class="card-location">Rajkot, Gujarat</p>
+          </div>
+          <div class="card-bottom">
+            <div class="card-price">Rs. 1000 per person</div>
+            <button class="book-btn" title="Press 'B' to book">Book Now</button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+ 
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<div class="testimonial-section">
+  <img class="map-bg-left" src="map crop 2.png" alt="Map Left">
+  <img class="map-bg-right" src="map crop.png" alt="Map Right">
+
+  <div class="testimonial-wrapper">
+    <div class="testimonial-title">What our Users say</div>
+    <div class="testimonial-grid">
+
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card">
+        <div class="user-header">
+          <div class="user-icon" style="background:#72A1DC">M</div>
+          <div class="user-name">Manisha Goyal</div>
+        </div>
+        <div class="testimonial-text">
+          “An unforgettable experience! The evening cultural performances and home-cooked meals were the highlights.”
+        </div>
+        <div class="testimonial-rating">Rating - ★★★★★</div>
+        <div class="testimonial-date">2 weeks ago</div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card">
+        <div class="user-header">
+          <div class="user-icon" style="background:#1C7883">Y</div>
+          <div class="user-name">Yashraj Apte</div>
+        </div>
+        <div class="testimonial-text">
+          “The perfect escape from city life! The cultural performances and authentic food were unforgettable!”
+        </div>
+        <div class="testimonial-rating">Rating - ★★★★★</div>
+        <div class="testimonial-date">6 months ago</div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card">
+        <div class="user-header">
+          <div class="user-icon" style="background:#4EA365">G</div>
+          <div class="user-name">Gaurav Patel</div>
+        </div>
+        <div class="testimonial-text">
+          “Loved the rustic vibe. The staff was so welcoming, and the huts were very clean.”
+        </div>
+        <div class="testimonial-rating">Rating - ★★★★☆</div>
+        <div class="testimonial-date">5 months ago</div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="testimonial-card">
+        <div class="user-header">
+          <div class="user-icon" style="background:#539097">R</div>
+          <div class="user-name">Ridhima Yadav</div>
+        </div>
+        <div class="testimonial-text">
+          “The perfect escape from city life! The cultural performances and authentic food were unforgettable!”
+        </div>
+        <div class="testimonial-rating">Rating - ★★★★★</div>
+        <div class="testimonial-date">5 months ago</div>
+      </div>
+
+      <!-- Testimonial 5 -->
+      <div class="testimonial-card">
+        <div class="user-header">
+          <div class="user-icon" style="background:#1C7883">V</div>
+          <div class="user-name">Viren Shah</div>
+        </div>
+        <div class="testimonial-text">
+          “The perfect escape from city life! The cultural performances and authentic food were unforgettable!”
+        </div>
+        <div class="testimonial-rating">Rating - ★★★★★</div>
+        <div class="testimonial-date">6 months ago</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="host-section">
+  <div class="host-background"></div>
+  <div class="host-wrapper">
+
+    <div class="host-text">
+      <h2>Share Your Local Knowledge</h2>
+      <p>Join our community of hosts and share your passion for your city. Help travellers discover the authentic essence of your home while earning from your expertise.</p>
+      <button class="host-button" title="click here">Become a Host</button>
+    </div>
+
+    <img class="host-image" src="host.png" alt="Become a Host">
+
+  </div>
+</div>
+</div>
+
+
+
+<div class="subscribe-section">
+  <img class="bg-img" src="form bg pic.png" alt="Background Image" />
+  <div class="subscribe-overlay">
+    <div style="width: 100%; height: 100%; background: rgba(217, 217, 217, 0.13); border-radius: 61px"></div>
+  </div>
+
+  <div class="subscribe-wrapper">
+    <div class="subscribe-left">
+      <h2>Start your adventure today!</h2>
+      <div>
+        <div class="subscribe-info"><strong>Subscribe to Updates</strong></div>
+        <div class="subscribe-info">Stay informed about local experiences and exclusive offers</div>
+      </div>
+    </div>
+
+    <div class="subscribe-right">
+      <div class="subscribe-message">
+        Discover the beauty of India like never before. Sign up now to customize your trip and experience local culture firsthand!
+      </div>
+
+      <div class="subscribe-buttons">
+        <div class="btn-explore">Explore</div>
+        <div class="btn-learn">Learn More</div>
+      </div>
+
+      <div class="subscribe-form">
+        <div class="email-input" title="press 'S' to type Email">Your Email here</div>
+        <div class="subscribe-btn" title="Subscribe">Subscribe</div>
+
+      
+      </div>
+    </div>
+    <div id="notification" style="display:none; background-color: #0C6B90; color: white; padding: 10px; border-radius: 25px; margin-top: 10px;">
+      You will get updates!
+    </div>
+    
+    <!-- Messages list -->
+    <ul id="messages-list"></ul>
+  </div>
+</div>
+
+
+
+
+ 
+
+
+
+
+<br>
+
+
+<div class="footer-container">
+  <img src="footer img 1.png" style="width: 510px; height: 405px; left: 0px; top: 51px;" />
+  <img src="footer img 2.png" style="width: 741px; height: 456px; left: 699px; top: 0px;" />
+
+  <div class="footer-text footer-bold" style="width: 125px; height: 23px; left: 158px; top: 56px;">Local Lens</div>
+  <div class="footer-text footer-regular" style="width: 222px; height: 144px; left: 158px; top: 110px;">Connecting travellers with authentic local experiences worldwide</div>
+
+  <div class="footer-text footer-bold" style="width: 129px; height: 24px; left: 1126px; top: 58px;">Contact Us</div>
+  <div class="footer-text footer-regular" style="width: 170px; height: 30px; left: 1126px; top: 113px;">(800) 123-4567</div>
+  <div class="footer-text footer-regular" style="width: 136px; height: 30px; left: 1126px; top: 163px;">24/7 support</div>
+
+  <div class="footer-text footer-bold" style="width: 120px; height: 24px; left: 829px; top: 56px;">For Hosts</div>
+  <div class="footer-text footer-regular" style="width: 160px; height: 41px; left: 829px; top: 111px;">Become a host</div>
+  <div class="footer-text footer-regular" style="width: 130px; height: 41px; left: 829px; top: 172px;">Host Resources Community</div>
+
+  <div class="footer-text footer-bold" style="width: 136px; height: 27px; left: 510px; top: 56px;">Quick Links</div>
+  <div class="footer-text footer-regular" style="width: 167px; height: 28px; left: 510px; top: 114px;">About Us</div>
+  <div class="footer-text footer-regular" style="width: 189px; height: 28px; left: 510px; top: 162px;">How it Works</div>
+  <div class="footer-text footer-regular" style="width: 167px; height: 28px; left: 510px; top: 210px;">Local Guide</div>
+  <div class="footer-text footer-regular" style="width: 102px; height: 28px; left: 510px; top: 258px;">Safety</div>
+  <div class="footer-text footer-regular" style="width: 110px; height: 28px; left: 510px; top: 306px;">Support</div>
+
+  <div class="footer-text footer-regular" style="width: 400px; height: 36px; left: 717px; top: 390px;">@Local Lens. All Rights Reserved.</div>
+
+  <div class="footer-logo">
+    <div class="dot"></div>
+    <div class="star">*</div>
+    <div class="name">Local Lens</div>
+  </div>
+
+  <div class="footer-line"></div>
+</div>
+
+
+<script src="script.js"></script>
+
+
+</body>
+</html>

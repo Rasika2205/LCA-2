@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Website Landing Page</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Oxygen', sans-serif;
+    }
+    html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+    body {
+      width: 100%;
+      height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(12, 107, 144, 0.2); /* transparent soft overlay */
+  z-index: 1;
+}
+
+
+
+    .hero-content {
+      position: absolute;
+      top: 251px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 939px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 89px;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-title {
+      font-family: 'Abhaya Libre', serif;
+      font-size: 64px;
+      font-weight: 800;
+    }
+
+    .hero-subtext {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+
+    .search-box {
+      position: relative;
+      width: 100%;
+      height: 60px;
+      background: white;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    .search-icon {
+      width: 16px;
+      height: 23px;
+      
+      margin-right: 10px;
+    }
+
+    .search-placeholder {
+      color: #999999;
+      font-size: 20px;
+    }
+    .search-input {
+  border: none;
+  outline: none;
+  font-size: 18px;
+  flex: 1;
+  color: #333;
+}
+
+    .search-button {
+      position: absolute;
+      right: 6px;
+      top: 6px;
+      width: 85px;
+      height: 47px;
+      background: #0C6B90;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-button img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .navbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 3;
+    }
+
+    .logo {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-circle {
+      width: 17px;
+      height: 17px;
+      background: #005276;
+      border-radius: 50%;
+      position: relative;
+      margin-right: 10px;
+    }
+
+    .logo-circle span {
+      position: absolute;
+      top: -6px;
+      left: 3px;
+      color: white;
+      font-size: 24px;
+      font-family: 'Jomhuria', serif;
+    }
+
+    .logo-text {
+      font-family: 'Abhaya Libre', serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #005276;
+      letter-spacing: 1.92px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .nav-link {
+      color: #F9F9F9;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 10px;
+    }
+
+    .book-now {
+      background: #096488;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      margin: 60px 0 40px;
+      color: #1a1a1a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    /* Hide hamburger image by default */
+.hamburger-icon {
+  display: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 4;
+}
+
+/* Mobile menu hidden by default */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  right: 24px;
+  background-color: rgba(12, 107, 144, 0.95);
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 3;
+}
+
+.mobile-menu .nav-link {
+  color: white;
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger-icon {
+    display: block;
+  }
+}
+
+    @media (max-width: 1024px) {
+  .hero-content {
+    top: 200px;
+    width: 80%;
+    gap: 60px;
+  }
+
+  .hero-title {
+    font-size: 48px;
+  }
+
+  .hero-subtext {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    top: 180px;
+    width: 90%;
+    gap: 40px;
+    padding: 0 10px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-subtext {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .search-box {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .search-input {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .search-button {
+    position: static;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .hero-image,
+  .overlay {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-subtext {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .logo-text {
+    font-size: 24px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .book-now {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+
+
+
+           .dest-section {
+  margin: 0;
+  font-family: 'Oxygen', sans-serif;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.84) 0%, rgba(172, 226, 247, 0.59) 40%, rgba(255, 255, 255, 0.84) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.dest-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+}
+
+.dest-heading {
+  font-size: 36px;
+  color: #0C6B90;
+  font-family: 'Abhaya Libre ExtraBold', serif;
+  font-weight: 1000;
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.dest-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+
+.dest-card {
+  width: 300px;
+  height: 420px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.25);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+}
+
+.dest-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(50, 52, 53, 0.3);
+  z-index: 0;
+}
+
+.dest-card-content {
+  position: relative;
+  padding: 20px;
+  z-index: 1;
+}
+
+.dest-card-title {
+  font-family: 'Abhaya Libre ExtraBold', serif;
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.dest-card-desc {
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+}
+
+.tour-button {
+  background: white;
+  color: #0C6B90;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 3px 14px;
+  border-radius: 8px;
+  font-weight: 400;
+  width: fit-content;
+  cursor: pointer;
+}
+.cta-button {
+  width: 120px;
+  padding: 10px;
+  background: #0C6B90;
+  border-radius: 30px;
+  outline: 1px solid #0C6B90;
+  outline-offset: -1px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+.dest-card {
+  transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+}
+
+.dest-card:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+.dest-card-content {
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.dest-card:hover .dest-card-content {
+  transform: translateY(-10px);
+  opacity: 1;
+}
+
+
+.blur-bg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(93deg, rgba(255, 255, 255, 0.47) 0%, rgba(172, 226, 247, 0.33) 50%, rgba(255, 255, 255, 0.47) 100%);
+  box-shadow: 10px 10px 10px;
+  filter: blur(5px);
+}
+
+@media (max-width: 768px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+    body {
+      background: #f5f5f5;
+      font-family: 'Oxygen', sans-serif;
+      padding: 20px;
+    }
+
+    /* subscribe section*/ 
+    .subscribe-section {
+      position: relative;
+      width: 100%;
+      height: 483px;
+      overflow: hidden;
+      border-radius: 61px;
+    }
+
+    .subscribe-section img.bg-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 61px;
+    }
+
+    .subscribe-overlay {
+      position: absolute;
+      top: 5px;
+      left: 0;
+      width: 100%;
+      height: 483px;
+      background: rgba(217, 217, 217, 0.13);
+      border-radius: 61px;
+      opacity: 50%;
+    }
+
+    .subscribe-wrapper {
+      position: absolute;
+      top: 50px;
+      left: 130px;
+      width: calc(100% - 260px);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 86px;
+      align-items: flex-end;
+      z-index: 1;
+    }
+
+    .subscribe-left {
+      width: 502px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .subscribe-left h2 {
+      color: white;
+      font-size: 44px;
+      font-family: 'Abhaya Libre ExtraBold', serif;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .subscribe-info {
+      color: white;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .subscribe-right {
+      width: 592px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .subscribe-message {
+      color: #323435;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+
+    .subscribe-buttons {
+      display: flex;
+      gap: 45px;
+    }
+
+    .btn-explore, .btn-learn {
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 20px;
+      font-family: 'Oxygen', sans-serif;
+      line-height: 30px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    .btn-explore {
+      background: #0C6B90;
+      color: white;
+    }
+
+    .btn-learn {
+      background: white;
+      color: #0C6B90;
+    }
+
+    .subscribe-form {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .email-input, .subscribe-btn {
+      height: 50px;
+      padding: 10px;
+      border-radius: 30px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-family: 'Oxygen', sans-serif;
+      line-height: 24px;
+      color: #0C6B90;
+      font-weight: 400;
+    }
+
+    .email-input {
+      width: 273px;
+    }
+
+    .subscribe-btn {
+      width: 131px;
+      cursor: pointer;
+    }
+    @media (max-width: 1024px) {
+  .subscribe-wrapper {
+    flex-direction: column;
+    align-items: center;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    gap: 40px;
+  }
+
+  .subscribe-left, .subscribe-right {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .subscribe-left h2 {
+    font-size: 36px;
+  }
+
+  .subscribe-message {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .subscribe-buttons {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .subscribe-form {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .email-input, .subscribe-btn {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .subscribe-left h2 {
+    font-size: 28px;
+  }
+
+  .subscribe-message {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .btn-explore, .btn-learn {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+
+  .email-input, .subscribe-btn {
+    height: 45px;
+    font-size: 14px;
+  }
+}
+
+    .container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background: #0C6B90;
+      overflow: hidden;
+      border-top-left-radius: 61px;
+      border-top-right-radius: 61px;
+      font-family: Oxygen, sans-serif;
+      color: white;
+    }
+    .title {
+      position: absolute;
+      left: 158px;
+      top: 56px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+    .subtitle {
+      position: absolute;
+      width: 222px;
+      left: 158px;
+      top: 110px;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 36px;
+    }
+    .contact-title {
+      position: absolute;
+      left: 1126px;
+      top: 58px;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+    }
+    .contact-number {
+      position: absolute;
+      left: 1126px;
+      top: 113px;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 36px;
+    }
+    .support {
+      position: absolute;
+      left: 1126px;
+      top: 163px;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 36px;
+    }
+    .for-hosts-title {
+      position: absolute;
+      left: 829px;
+      top: 56px;
+      font-weight: 700;
+    }
+    .for-hosts-link, .quick-links a {
+      position: absolute;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 36px;
+    }
+    .for-hosts-link:nth-child(2) { top: 111px; left: 829px; }
+    .for-hosts-link:nth-child(3) { top: 172px; left: 829px; }
+    .for-hosts-link:nth-child(4) { top: 233px; left: 829px; }
+
+    .quick-links-title {
+      position: absolute;
+      left: 510px;
+      top: 56px;
+      font-weight: 700;
+    }
+    .quick-links a:nth-child(2) { top: 114px; left: 510px; }
+    .quick-links a:nth-child(3) { top: 162px; left: 510px; }
+    .quick-links a:nth-child(4) { top: 210px; left: 510px; }
+    .quick-links a:nth-child(5) { top: 258px; left: 510px; }
+    .quick-links a:nth-child(6) { top: 306px; left: 510px; }
+
+   /*bento*/
+    .bento-section {
+  max-width: 1200px;
+  margin: 0 auto 40px auto; /* aligns center & adds space below */
+  padding: 0 30px;
+}
+
+.section-title {
+  color: #0C6B90;
+  font-size: 44px;
+  font-family: 'Abhaya Libre ExtraBold', serif;
+  font-weight: 800;
+  word-wrap: break-word;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 200px;
+      gap: 15px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .bento-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      color: white;
+      
+    }
+
+    .bento-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+     
+    }
+
+    .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;}
+
+    .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* darker transparent background */
+  color: #fff;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  box-sizing: border-box;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  font-family: oxygen;
+    }
+
+    /* Custom spans */
+    .wide {
+      grid-column: span 2;
+    }
+
+    .tall {
+      grid-row: span 2;
+    }
+
+    .big {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    @media (max-width: 768px) {
+      .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .big, .wide, .tall {
+        grid-column: span 2 !important;
+        grid-row: span 1 !important;
+      }
+    }
+    
+    .footer-container {
+      width: 100%;
+      height: 450px;
+      position: relative;
+      background: #0C6B90;
+      overflow: hidden;
+      border-top-left-radius: 61px;
+      border-top-right-radius: 61px;
+    }
+    .footer-container img {
+      position: absolute;
+      opacity: 5.12;
+    }
+    .footer-container .footer-text {
+      position: absolute;
+      color: white;
+      font-size: 20px;
+      font-family: Oxygen;
+      line-height: 36px;
+      word-wrap: break-word;
+    }
+    .footer-bold {
+      font-weight: 700;
+    }
+    .footer-regular {
+      font-weight: 400;
+    }
+    .footer-logo {
+      position: absolute;
+      width: 200px;
+      height: 32px;
+      left: 519px;
+      top: 386px;
+    }
+    .footer-logo .dot {
+      width: 20px;
+      height: 17px;
+      left: 0px;
+      top: 5px;
+      position: absolute;
+      background: white;
+      border-radius: 9999px;
+    }
+    .footer-logo .star {
+      width: 20px;
+      height: 19px;
+      left: 3px;
+      top: 3px;
+      position: absolute;
+      color: #0C6B90;
+      font-size: 32px;
+      font-family: Jomhuria;
+      font-weight: 400;
+      letter-spacing: 1.92px;
+      word-wrap: break-word;
+    }
+    .footer-logo .name {
+      left: 27px;
+      top: 0px;
+      position: absolute;
+      color: white;
+      font-size: 24px;
+      font-family: Abhaya Libre ExtraBold;
+      font-weight: 800;
+      letter-spacing: 1.92px;
+      word-wrap: break-word;
+    }
+    .footer-line {
+      width: 1440.03px;
+      height: 0px;
+      left: -1px;
+      top: 364px;
+      position: absolute;
+      outline: 1px white solid;
+      outline-offset: -0.50px;
+    }
+/*locals recommend*/
+    .locals {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .titlel {
+      text-align: center;
+      font-family: 'Abhaya Libre', serif;
+      font-size: 2.5rem;
+      color: #0C6B90;
+      margin-bottom: 40px;
+    }
+
+    .cards-wrapperl {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .cardlocals {
+      background: white;
+      width: 100%;
+      max-width: 348px;
+      border-radius: 20px;
+      box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-contentl {
+      padding: 20px;
+      position: relative;
+    }
+
+    .card-titlel {
+      font-family: 'Abhaya Libre', serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #323435;
+      margin-bottom: 10px;
+    }
+
+    .card-descriptionl {
+      font-size: 1rem;
+      color: #000;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .card-authorl {
+      font-size: 1rem;
+      color: #979498;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .card-locationl {
+      font-size: 1rem;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    .card-tagl {
+      display: inline-block;
+      border: 1px solid #0C6B90;
+      border-radius: 11px;
+      padding: 5px 12px;
+      font-weight: 700;
+      color: #0C6B90;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    .learn-morel {
+      margin: 40px auto 0;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0C6B90;
+      border-radius: 30px;
+      background: white;
+      border: 1px solid #0C6B90;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      text-align: center;
+      width: fit-content;
+    }
+    .cardlocals {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardlocals:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.25);
+}
+
+    @media (max-width: 768px) {
+      .cardlocals {
+        max-width: 90%;
+      }
+
+      .card-titlel {
+        font-size: 2rem;
+      }
+
+      .card-descriptionl, .card-authorl, .card-locationl {
+        font-size: 0.95rem;
+      }
+     
+
+      /*testimonials*/
+    }
+    .travel-stories-wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .travel-bg-image {
+      position: absolute;
+      opacity: 0.72;
+    }
+
+    .map-img-right {
+      width: 35%;
+      max-width: 593px;
+      height: auto;
+      right: 0;
+      top: 20%;
+    }
+
+    .map-img-left {
+      width: 25%;
+      max-width: 308px;
+      height: auto;
+      left: 0;
+      top: 0;
+    }
+
+    .travel-content-box {
+      max-width: 1120px;
+      position: relative;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .travel-title {
+      color: #0C6B90;
+      font-size: 44px;
+      font-family: 'Abhaya Libre ExtraBold', serif;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .travel-cards-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      max-width: 1120px;
+    }
+
+    .travel-card {
+      width: 328px;
+      background: #F9F9F9;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      height: 265px;
+    }
+
+    .travel-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .travel-avatar {
+      width: 54px;
+      height: 54px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      font-size: 24px;
+      font-weight: 400;
+      color: white;
+      font-family: 'Oxygen', sans-serif;
+    }
+
+    .traveler-name {
+      font-size: 20px;
+      color: #323435;
+      font-weight: 400;
+    }
+
+    .travel-story {
+      font-size: 15px;
+      color: black;
+      text-align: center;
+    }
+
+    .travel-rating-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .travel-rating-label {
+      font-size: 20px;
+      color: black;
+    }
+
+    .travel-stars {
+      font-size: 20px;
+      color: #0C6B90;
+    }
+
+    .travel-timestamp {
+      font-size: 13px;
+      color: #999;
+    }
+
+    .blue { background: #72A1DC; }
+    .teal { background: #1C7883; }
+    .green { background: #4EA365; }
+
+    @media (max-width: 1024px) {
+      .travel-title {
+        font-size: 36px;
+      }
+
+      .map-img-right, .map-img-left {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .travel-title {
+        font-size: 30px;
+      }
+
+      .travel-cards-wrapper {
+        flex-direction: column;
+      }
+
+      .travel-card {
+        width: 90%;
+      }
+
+      .travel-story {
+        font-size: 14px;
+      }
+
+      .travel-rating-label, .travel-stars {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .travel-title {
+        font-size: 24px;
+      }
+
+      .travel-card {
+        width: 100%;
+      }
+
+      .travel-rating-label, .travel-stars {
+        font-size: 16px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .travel-cards-wrapper {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
+
+      .travel-card {
+        width: 32%;
+      }
+    }
+    
+
+  </style>
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Hero image -->
+    <img class="hero-image" src="yes 2.png" alt="Top destinations in India background" />
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Navigation bar -->
+    <div class="navbar">
+      <div class="logo">
+        <div class="logo-circle"><span>*</span></div>
+        <div class="logo-text">Local Lens</div>
+      </div>
+    
+      <!-- Desktop Nav Links -->
+      <div class="nav-links">
+        <div class="nav-link">Home</div>
+        <div class="nav-link">Destinations</div>
+        <div class="nav-link">Become A Host</div>
+        <div class="nav-link">Contact Us</div>
+        <div class="nav-link book-now">Book Now</div>
+      </div>
+    
+      <!-- Hamburger Icon -->
+      <img src="hamburger.png" id="hamburger" class="hamburger-icon" alt="menu" />
+    
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="nav-link">Home</div>
+        <div class="nav-link">Destinations</div>
+        <div class="nav-link">Become A Host</div>
+        <div class="nav-link">Contact Us</div>
+        <div class="nav-link book-now">Book Now</div>
+      </div>
+    </div>
+    
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <div>
+        <div class="hero-title">Explore Top Destinations in India</div>
+        <div class="hero-subtext">Discover local culture, food, festivals, and hidden gems in each location!</div>
+      </div>
+      <div class="search-box">
+        <div class="search-icon">
+         <img src="Vector.png"/>   
+        </div>
+        <input type="text" id="searchInput" placeholder="Where would you like to explore?" class="search-input"/>
+
+        <div class="search-button" id="searchButton">
+          <img src="Search.png" alt="search icon"/>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+    <!-- 9 cards-->
+
+    <div class="dest-section">
+      <div class="dest-wrapper">
+        <div class="dest-heading">Choose from a range of Destinations</div>
+        <div class="dest-cards">
+    
+          <!-- Existing Cards -->
+          <div class="dest-card" style="background-image: url('HP.jpeg');">
+            <div style="width: 100%; height: 100%; left: 0px; top: 0px; position: absolute; background: rgba(50, 52, 53, 0.30); border-radius: 20px"></div>
+            <div class="dest-card-content">
+              <div class="dest-card-title">Himachal Pradesh</div>
+              <div class="dest-card-desc">Breathtaking mountain trails<br/>Cozy towns,pine forests</div>
+              <br>
+              <div class="tour-button" title="click here">12 Upcoming Tours</div>
+    
+              <div >
+              </div>
+            </div>
+            
+          </div>
+    
+          <div class="dest-card" style="background-image: url('Goa.jpeg');">
+            <div style="width: 100%; height: 100%; left: 0px; top: 0px; position: absolute; background: rgba(50, 52, 53, 0.30); border-radius: 20px"></div>
+            <div class="dest-card-content">
+              <div class="dest-card-title">Goa</div>
+              <div class="dest-card-desc">Sun, sand, and sea breeze<br/>Lively beaches and old forts</div>
+              <br>
+              <div class="tour-button" title="click here">15 Upcoming Tours</div>
+            </div>
+          </div>
+    
+          <a href="rajasthan.html" title="click here" style="text-decoration: none; color: inherit;">
+            <div class="dest-card" style="background-image: url('raj img.png');">
+              <div style="width: 100%; height: 100%; left: 0px; top: 0px; position: absolute; background: rgba(50, 52, 53, 0.30); border-radius: 20px"></div>
+              <div class="dest-card-content">
+                <div class="dest-card-title">Rajasthan</div>
+                <div class="dest-card-desc">Royal palaces and forts<br/>Desert adventures await</div>
+                <br>
+                <div class="tour-button">10 Upcoming Tours</div>
+              </div>
+            </div>
+          </a>
+          
+    
+          <!-- NEW MIDDLE ROW CARDS -->
+          <div class="dest-card" style="background-image: url('Ladakh.png');">
+            <div style="width: 100%; height: 100%; left: 0px; top: 0px; position: absolute; background: rgba(50, 52, 53, 0.30); border-radius: 20px"></div>
+            <div class="dest-card-content">
+              <div class="dest-card-title">Ladakh</div>
+              <div class="dest-card-desc">Adventure in the high passes<br/>Majestic Mountains</div>
+              <br>
+              <div class="tour-button" title="click here">16 Upcoming Tours</div>
+            </div>
+            
+          </div>
+    
+          <div class="dest-card" style="background-image: url('sikkim.png');">
+            <div style="width: 100%; height: 100%; left: 0px; top: 0px; position: absolute; background: rgba(50, 52, 53, 0.30); border-radius: 20px"></div>
+            <div class="dest-card-content">
+              <div class="dest-card-title">Sikkim</div>
+              <div class="dest-card-desc">Serene valleys and monasteries<br/>Gateway to the Himalayas
+
+              </div>
+              <br>
+              <div class="tour-button" title="click here">6 Upcoming Tours</div>
+            </div>
+          </div>
+    
+          <div class="dest-card" style="background-image: url('lakshadweep.png');">
+            <div style="width: 100%; height: 100%; left: 0px; top: 0px; position: absolute; background: rgba(50, 52, 53, 0.30); border-radius: 20px"></div>
+            <div class="dest-card-content">
+              <div class="dest-card-title">Lakshadweep</div>
+              <div class="dest-card-desc">Crystal-clear island escapes<br/>Dive into turquoise waters
+
+              </div>
+              <br>
+              <div class="tour-button"title="click here">10 Upcoming Tours</div>
+            </div>
+          </div>
+    
+          <!-- Remaining Cards -->
+          <div class="dest-card" style="background-image: url('kerala.jpeg');">
+            <div style="width: 100%; height: 100%; left: 0px; top: 0px; position: absolute; background: rgba(50, 52, 53, 0.30); border-radius: 20px"></div>
+            <div class="dest-card-content">
+              <div class="dest-card-title">Kerala</div>
+              <div class="dest-card-desc">Backwaters and lush greenery<br/>God's own country awaits</div>
+              <br>
+              <div class="tour-button" title="click here">6 Upcoming Tours</div>
+            </div>
+          </div>
+    
+          <div class="dest-card" style="background-image: url('gujrat.jpeg');">
+            <div style="width: 100%; height: 100%; left: 0px; top: 0px; position: absolute; background: rgba(50, 52, 53, 0.30); border-radius: 20px"></div>
+            <div class="dest-card-content">
+              <div class="dest-card-title">Gujarat</div>
+              <div class="dest-card-desc">Land of culture & wildlife<br/>History in every corner</div>
+              <br>
+              <div class="tour-button" title="click here">9 Upcoming Tours</div>
+            </div>
+          </div>
+    
+          <div class="dest-card" style="background-image: url('Hampi.jpeg');">
+            <div style="width: 100%; height: 100%; left: 0px; top: 0px; position: absolute; background: rgba(50, 52, 53, 0.30); border-radius: 20px"></div>
+            <div class="dest-card-content">
+              <div class="dest-card-title">Hampi</div>
+              <div class="dest-card-desc">Ancient ruins & boulder landscapes<br/>Step into a timeless era</div>
+              <br>
+              <div class="tour-button" title="click here">7 Upcoming Tours</div>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+     <br>
+  <br>
+  <br>
+  <br>
+  <!-- locals recommend-->
+  <div class="locals">
+    <div class="titlel">Locals Recommend</div>
+
+    <div class="cards-wrapperl">
+      <div class="cardlocals">
+        <img src="Amer Fort.png" alt="Amer Fort" />
+        <div class="card-contentl">
+          <div class="card-titlel">Amer Fort</div>
+          <div class="card-descriptionl">"Most tourists visit Amber Fort after 10 AM, but if you go at sunrise, the light is golden and it’s completely peaceful."</div>
+          <div class="card-authorl">-Niharika, Jaipur Guide</div>
+          <div class="card-locationl">📍Location- Jaipur, Rajasthan</div>
+          <div class="card-tagl">Hidden Spot</div>
+        </div>
+      </div>
+
+      <div class="cardlocals">
+        <img src="Masala Milk.png" alt="Rajkot’s Speciality" />
+        <div class="card-contentl">
+          <div class="card-titlel">Rajkot’s Speciality</div>
+          <div class="card-descriptionl">"After 9 PM, Rajkot’s chowks turn into secret spots for sweet, spicy masala milk—ask for ‘khada doodh’."</div>
+          <div class="card-authorl">-Kishan, Street Food Vendor</div>
+          <div class="card-locationl">📍Location- Rajkot, Gujarat</div>
+          <div class="card-tagl">Local Food</div>
+        </div>
+      </div>
+
+      <div class="cardlocals">
+        <img src="Canoe.png" alt="A Canoe Ride" />
+        <div class="card-contentl">
+          <div class="card-titlel">A Canoe Ride</div>
+          <div class="card-descriptionl">"Skip the crowded houseboats. A canoe ride through Kuttanad’s narrow canals is quiet, green, and magical."</div>
+          <div class="card-authorl">-Anjali, Local Host</div>
+          <div class="card-locationl">📍Location- Alappuzha, Kerala</div>
+          <div class="card-tagl">Exploring</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="learn-morel" title="click here or press 'L'">Learn more</div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!-- testimonials-->
+  <div class="travel-stories-wrapper">
+    <img class="travel-bg-image map-img-right" src="map crop.png" />
+    <img class="travel-bg-image map-img-left" src="map crop 2.png" />
+
+    <div class="travel-content-box">
+      <div class="travel-title">Traveler Stories from These Destinations</div>
+
+      <div class="travel-cards-wrapper">
+        <div class="travel-card">
+          <div class="travel-card-header">
+            <div class="travel-avatar blue">A</div>
+            <div class="traveler-name">Anushree Apte</div>
+          </div>
+          <div class="travel-story">“The sunset cultural performances in Jaisalmer were magical, and the home-cooked Rajasthani thali made me feel like part of the family.”</div>
+          <div class="travel-rating-wrapper">
+            <div class="travel-rating-label">Rating- <span class="travel-stars">★★★★★</span></div>
+            <div class="travel-timestamp">5 weeks ago</div>
+          </div>
+        </div>
+
+        <div class="travel-card">
+          <div class="travel-card-header">
+            <div class="travel-avatar teal">R</div>
+            <div class="traveler-name">Rutuja Panse</div>
+          </div>
+          <div class="travel-story">“Exploring Kerala’s backwaters on a canoe at dawn was surreal. Our host even sang traditional songs as we floated past the villages.”</div>
+          <div class="travel-rating-wrapper">
+            <div class="travel-rating-label">Rating- <span class="travel-stars">★★★★★</span></div>
+            <div class="travel-timestamp">3 months ago</div>
+          </div>
+        </div>
+
+        <div class="travel-card">
+          <div class="travel-card-header">
+            <div class="travel-avatar green">G</div>
+            <div class="traveler-name">Ritwik Bhatia</div>
+          </div>
+          <div class="travel-story">“Hampi’s ruins were stunning, but it was our local guide’s stories that brought them to life. Loved staying in the eco-huts near the river!”</div>
+          <div class="travel-rating-wrapper">
+            <div class="travel-rating-label">Rating- <span class="travel-stars">★★★★☆</span></div>
+            <div class="travel-timestamp">8 months ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <!-- bento-->
+
+
+<div class="bento-section">
+  <div class="section-title">Moments from the Journey</div>
+
+  <div class="bento-grid">
+    <div class="bento-item wide">
+      <img src="varanasi.png" alt="">
+     
+      <div class="caption">“Sunrise in Varanasi was more than a view—it was a feeling of stillness in chaos.”</div>
+       <div class="overlay"></div>
+    </div>
+  
+    <div class="bento-item big">
+      <img src="nainital.png" alt="">
+      <div class="caption">“No filters, no crowds, just pure mountain energy and a warm welcome.”</div>
+    </div>
+  
+    <div class="bento-item">
+      <img src="ladakh 2.png" alt="">
+      <div class="caption">“From strangers to friends in the mountains. Our local guide made it feel like home.”</div>
+    </div>
+  
+    <div class="bento-item">
+      <img src="punjab.png" alt="">
+      <div class="caption">Shared stories, shared rotis, and a sunrise by the Golden Temple.</div>
+    </div>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 40px 0;">
+
+    <div style="text-align: center; color: #323435; font-size: 24px; font-family: Oxygen; font-weight: 400; line-height: 36px; word-wrap: break-word; margin-bottom: 20px;">
+      Want to share your journey with Local Lens?<br/>Share your travel moment!
+    </div>
+
+  <div style="padding: 10px; background: white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 30px; outline: 1px #0C6B90 solid; outline-offset: -1px; display: flex; justify-content: center; align-items: center; width: 170px; height: 50px;">
+    <div style="text-align: center; color: #0C6B90; font-size: 20px; font-family: Oxygen; font-weight: 700; line-height: 30px;">
+      Share my Story
+    </div>
+  </div>
+</div>
+</div>
+
+  <!-- subscribe-->
+
+  <div class="subscribe-section">
+    <img class="bg-img" src="form bg pic.png" alt="Background Image" />
+    <div class="subscribe-overlay">
+      <div style="width: 100%; height: 100%; background: rgba(217, 217, 217, 0.13); border-radius: 61px"></div>
+    </div>
+  
+    <div class="subscribe-wrapper">
+      <div class="subscribe-left">
+        <h2>Start your adventure today!</h2>
+        <div>
+          <div class="subscribe-info"><strong>Subscribe to Updates</strong></div>
+          <div class="subscribe-info">Stay informed about local experiences and exclusive offers</div>
+        </div>
+      </div>
+  
+      <div class="subscribe-right">
+        <div class="subscribe-message">
+          Discover the beauty of India like never before. Sign up now to customize your trip and experience local culture firsthand!
+        </div>
+  
+        <div class="subscribe-buttons">
+          <div class="btn-explore">Explore</div>
+          <div class="btn-learn">Learn More</div>
+        </div>
+  
+        <div class="subscribe-form">
+          <div class="email-input" title="press 'S' to type Email">Your Email here</div>
+          <div class="subscribe-btn" title="Subscribe">Subscribe</div>
+  
+        
+        </div>
+      </div>
+      <div id="notification" style="display:none; background-color: #0C6B90; color: white; padding: 10px; border-radius: 25px; margin-top: 10px;">
+        You will get updates!
+      </div>
+      
+      <!-- Messages list -->
+      <ul id="messages-list"></ul>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+  <!-- footer-->
+
+<div class="footer-container">
+  <img src="footer img 1.png" style="width: 510px; height: 405px; left: 0px; top: 51px;" />
+  <img src="footer img 2.png" style="width: 741px; height: 456px; left: 699px; top: 0px;" />
+
+  <div class="footer-text footer-bold" style="width: 125px; height: 23px; left: 158px; top: 56px;">Local Lens</div>
+  <div class="footer-text footer-regular" style="width: 222px; height: 144px; left: 158px; top: 110px;">Connecting travellers with authentic local experiences worldwide</div>
+
+  <div class="footer-text footer-bold" style="width: 129px; height: 24px; left: 1126px; top: 58px;">Contact Us</div>
+  <div class="footer-text footer-regular" style="width: 170px; height: 30px; left: 1126px; top: 113px;">(800) 123-4567</div>
+  <div class="footer-text footer-regular" style="width: 136px; height: 30px; left: 1126px; top: 163px;">24/7 support</div>
+
+  <div class="footer-text footer-bold" style="width: 120px; height: 24px; left: 829px; top: 56px;">For Hosts</div>
+  <div class="footer-text footer-regular" style="width: 160px; height: 41px; left: 829px; top: 111px;">Become a host</div>
+  <div class="footer-text footer-regular" style="width: 130px; height: 41px; left: 829px; top: 172px;">Host Resources Community</div>
+
+  <div class="footer-text footer-bold" style="width: 136px; height: 27px; left: 510px; top: 56px;">Quick Links</div>
+  <div class="footer-text footer-regular" style="width: 167px; height: 28px; left: 510px; top: 114px;">About Us</div>
+  <div class="footer-text footer-regular" style="width: 189px; height: 28px; left: 510px; top: 162px;">How it Works</div>
+  <div class="footer-text footer-regular" style="width: 167px; height: 28px; left: 510px; top: 210px;">Local Guide</div>
+  <div class="footer-text footer-regular" style="width: 102px; height: 28px; left: 510px; top: 258px;">Safety</div>
+  <div class="footer-text footer-regular" style="width: 110px; height: 28px; left: 510px; top: 306px;">Support</div>
+
+  <div class="footer-text footer-regular" style="width: 400px; height: 36px; left: 717px; top: 390px;">@Local Lens. All Rights Reserved.</div>
+
+  <div class="footer-logo">
+    <div class="dot"></div>
+    <div class="star">*</div>
+    <div class="name">Local Lens</div>
+  </div>
+
+  <div class="footer-line"></div>
+</div>
+
+<script src="script2.js"></script>
+</body>
+</html>
